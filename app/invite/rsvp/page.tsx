@@ -190,7 +190,7 @@ export default function RsvpPage() {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)]"
+            className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)] btn-glow-pulse"
           >
             {status === "submitting" ? "Gönderiliyor…" : "Onayla"}
           </button>

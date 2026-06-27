@@ -43,7 +43,7 @@ function CircleAction({
 }) {
   const content = (
     <div className="flex flex-col items-center gap-2.5 group cursor-pointer">
-      <span className="w-14 h-14 rounded-full border border-olive-soft/40 bg-cream-deep/30 text-olive-deep flex items-center justify-center shadow-[0_4px_12px_rgba(197,168,128,0.12)] transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-olive group-hover:text-cream group-active:scale-95">
+      <span className="w-14 h-14 rounded-full border border-olive-soft/40 bg-cream-deep/30 text-olive-deep flex items-center justify-center shadow-[0_4px_12px_rgba(197,168,128,0.12)] transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-olive group-hover:text-cream group-active:scale-95 btn-glow-pulse">
         {icon}
       </span>
       <span className="font-display text-[9px] tracking-[0.2em] uppercase text-ink-soft transition-colors duration-300 group-hover:text-olive-deep">
@@ -178,7 +178,7 @@ export default function InvitePage() {
         {/* Intertwined Engagement Rings Divider */}
         <div className="flex items-center gap-4.5 z-10 opacity-85 my-2">
           <div className="w-12 h-px bg-line" />
-          <svg width="48" height="32" viewBox="0 0 48 32" fill="none" className="text-olive scale-105">
+          <svg width="72" height="48" viewBox="0 0 48 32" fill="none" className="text-olive scale-110">
             {/* Left Ring (engagement/diamond ring) */}
             <circle cx="18" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
             <path d="M18 4 L21 7 L18 10 L15 7 Z" fill="currentColor" />
