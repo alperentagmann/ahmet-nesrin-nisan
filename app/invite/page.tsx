@@ -79,56 +79,85 @@ export default function InvitePage() {
       />
 
       {/* The Invitation Card */}
-      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-14 sm:px-10 sm:py-16 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-8 sm:gap-10 animate-[fadeIn_0.7s_ease-out]">
+      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-7 sm:gap-8 animate-[fadeIn_0.7s_ease-out]">
         
         {/* Double Border Frame */}
         <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />
         <div className="absolute inset-3.5 border border-olive-soft/15 pointer-events-none rounded-[1px]" />
 
+        {/* Corner Floral Ornaments */}
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="absolute top-1.5 left-1.5 text-olive/30 pointer-events-none opacity-60">
+          <path d="M0 0 C 25 5, 45 25, 40 50" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M12 8 C 20 4, 25 12, 17 18 C 9 24, 5 16, 12 8 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M24 20 C 32 16, 37 24, 29 30 C 21 36, 17 28, 24 20 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+        </svg>
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="absolute top-1.5 right-1.5 text-olive/30 pointer-events-none opacity-60 rotate-90">
+          <path d="M0 0 C 25 5, 45 25, 40 50" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M12 8 C 20 4, 25 12, 17 18 C 9 24, 5 16, 12 8 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M24 20 C 32 16, 37 24, 29 30 C 21 36, 17 28, 24 20 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+        </svg>
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="absolute bottom-1.5 left-1.5 text-olive/30 pointer-events-none opacity-60 -rotate-90">
+          <path d="M0 0 C 25 5, 45 25, 40 50" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M12 8 C 20 4, 25 12, 17 18 C 9 24, 5 16, 12 8 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M24 20 C 32 16, 37 24, 29 30 C 21 36, 17 28, 24 20 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+        </svg>
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="absolute bottom-1.5 right-1.5 text-olive/30 pointer-events-none opacity-60 rotate-180">
+          <path d="M0 0 C 25 5, 45 25, 40 50" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M12 8 C 20 4, 25 12, 17 18 C 9 24, 5 16, 12 8 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+          <path d="M24 20 C 32 16, 37 24, 29 30 C 21 36, 17 28, 24 20 Z" fill="currentColor" fillOpacity="0.04" stroke="currentColor" strokeWidth="0.8" />
+        </svg>
+
         {/* Crown Twig Ornament */}
-        <svg width="60" height="30" viewBox="0 0 80 40" fill="none" className="text-olive/50 mt-1 opacity-80 shrink-0">
+        <svg width="50" height="24" viewBox="0 0 80 40" fill="none" className="text-olive/50 mt-1 opacity-80 shrink-0 z-10">
           <path d="M40 38 V 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-          {/* Left leaves */}
           <path d="M40 30 C 30 28, 25 20, 28 15 C 31 10, 38 18, 40 22" stroke="currentColor" strokeWidth="1.2" fill="none" />
           <path d="M40 22 C 28 20, 23 12, 26 7 C 29 2, 38 10, 40 14" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          {/* Right leaves */}
           <path d="M40 30 C 50 28, 55 20, 52 15 C 49 10, 42 18, 40 22" stroke="currentColor" strokeWidth="1.2" fill="none" />
           <path d="M40 22 C 52 20, 57 12, 54 7 C 51 2, 42 10, 40 14" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          {/* Center top leaf */}
           <path d="M40 10 C 37 5, 40 0, 40 0 C 40 0, 43 5, 40 10" stroke="currentColor" strokeWidth="1.2" fill="none" />
         </svg>
 
-        {/* Names & Parents */}
-        <div className="flex flex-col items-center gap-1.5 z-10">
-          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug">
-            {parents.bride.names}
-          </p>
-          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-3.5 mb-1.5">
-            {coupleNames.first}
-          </h1>
+        {/* Invitation Header */}
+        <p className="font-display text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-ink-soft/90 z-10 -mt-2">
+          Nişanımıza Davetlisiniz
+        </p>
 
-          <span className="font-body text-lg italic text-ink-soft/75 my-1">&amp;</span>
-
-          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-1 mb-3.5">
-            {coupleNames.second}
-          </h1>
-          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug">
-            {parents.groom.names}
-          </p>
+        {/* Rings Hero Section with Names Overlay */}
+        <div className="relative w-full aspect-[16/11] rounded-xl overflow-hidden border border-olive-soft/25 shadow-md z-10 flex items-center justify-center bg-cream-deep/30">
+          <img
+            src="/rings-bg.png"
+            alt="Nişan Yüzükleri"
+            className="absolute inset-0 w-full h-full object-cover opacity-90"
+          />
+          {/* Subtle gradient overlay to enhance text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-paper/30 via-transparent to-paper/20 pointer-events-none" />
+          
+          {/* Overlay Names */}
+          <div className="relative w-full h-full flex items-center justify-center px-4 z-10">
+            <div className="flex items-center justify-between w-full max-w-[19rem] text-[#806745] select-none font-semibold">
+              <span className="font-script text-[3rem] sm:text-[3.6rem] leading-none -rotate-6 transform -translate-y-2 -translate-x-1 filter drop-shadow-[0_2px_4px_rgba(255,255,255,0.85)]">
+                {coupleNames.first}
+              </span>
+              <span className="font-body text-base italic text-ink-soft/90 mx-3 transform translate-y-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
+                &amp;
+              </span>
+              <span className="font-script text-[3rem] sm:text-[3.6rem] leading-none -rotate-6 transform translate-y-3 translate-x-1 filter drop-shadow-[0_2px_4px_rgba(255,255,255,0.85)]">
+                {coupleNames.second}
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Intertwined Engagement Rings Divider */}
-        <div className="flex items-center gap-3 z-10 opacity-85 my-1.5">
-          <div className="w-8 h-px bg-line" />
-          <svg width="36" height="24" viewBox="0 0 48 32" fill="none" className="text-olive">
-            {/* Left Ring (engagement/diamond ring) */}
-            <circle cx="18" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
-            <path d="M18 4 L21 7 L18 10 L15 7 Z" fill="currentColor" />
-            <circle cx="18" cy="7" r="1" fill="var(--paper)" />
-            {/* Right Ring */}
-            <circle cx="28" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
-          </svg>
-          <div className="w-8 h-px bg-line" />
+        {/* Parents Section */}
+        <div className="flex flex-col gap-1 sm:gap-1.5 z-10 mt-1">
+          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft/95 leading-snug">
+            <span className="font-display text-[9px] tracking-[0.1em] not-italic uppercase font-semibold text-olive-deep mr-1.5">{parents.bride.label}:</span>
+            {parents.bride.names}
+          </p>
+          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft/95 leading-snug">
+            <span className="font-display text-[9px] tracking-[0.1em] not-italic uppercase font-semibold text-olive-deep mr-1.5">{parents.groom.label}:</span>
+            {parents.groom.names}
+          </p>
         </div>
 
         {/* Invite text */}
