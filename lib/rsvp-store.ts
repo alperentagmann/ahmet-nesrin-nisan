@@ -4,12 +4,12 @@ let redis: Redis | null = null
 
 function getRedis(): Redis {
   if (!redis) {
-    const url = process.env.KV_REST_API_URL
-    const token = process.env.KV_REST_API_TOKEN
+    const url = process.env.UPSTASH_REDIS_REST_URL
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN
     if (!url || !token) {
       throw new Error(
-        "KV_REST_API_URL ve KV_REST_API_TOKEN environment variable'ları eksik. " +
-        "Vercel Dashboard > Storage > KV bağlantısını kontrol edin."
+        "UPSTASH_REDIS_REST_URL ve UPSTASH_REDIS_REST_TOKEN environment variable'ları eksik. " +
+        "Vercel Dashboard > Settings > Environment Variables bölümünden ekleyin."
       )
     }
     redis = new Redis({ url, token })
