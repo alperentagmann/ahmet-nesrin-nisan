@@ -10,11 +10,11 @@ export const inviteConfig = {
   parents: {
     bride: {
       label: "Gelinin Ailesi",
-      names: "Hadice ve Tuncay Saraç",
+      names: "Hadice ve Tuncay SARAÇ",
     },
     groom: {
       label: "Damadın Ailesi",
-      names: "Mine ve A.Kadir Tağman",
+      names: "Mine ve A.Kadir TAĞMAN",
     },
   },
   eventDate: "2026-07-12T13:00:00",
