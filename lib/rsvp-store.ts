@@ -33,7 +33,7 @@ export async function addRsvp(input: {
 
 export async function getAllRsvps(): Promise<RsvpEntry[]> {
   const raw = await redis.lrange(RSVP_KEY, 0, -1)
-  return raw.map((r) => JSON.parse(r as string) as RsvpEntry)
+  return (raw ?? []).map((r) => JSON.parse(r as string) as RsvpEntry)
 }
 
 export async function getRsvpSummary(): Promise<{

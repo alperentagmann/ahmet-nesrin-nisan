@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllRsvps, getRsvpSummary } from "@/lib/rsvp-store";
+import { getAllRsvps } from "@/lib/rsvp-store";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "ahmetnesrin123";
 
@@ -15,10 +15,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const [summary, entries] = await Promise.all([
-      getRsvpSummary(),
-      getAllRsvps(),
-    ]);
+    const entries = await getAllRsvps();
+    const summary = {
+      total: entries.length,
+      attending: entries.filter((e) => e.attending).length,
+      notAttending: entries.filter((e) => !e.attending).length,
+    };
 
     return NextResponse.json({ ok: true, summary, entries });
   } catch (err) {
