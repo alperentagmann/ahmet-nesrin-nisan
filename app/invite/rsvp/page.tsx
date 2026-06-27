@@ -10,18 +10,22 @@ type Status = "idle" | "submitting" | "done" | "error";
 export default function RsvpPage() {
   const [choice, setChoice] = useState<Choice>(null);
   const [name, setName] = useState("");
-  const [allergies, setAllergies] = useState("");
+  const [guestsCount, setGuestsCount] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!choice) {
-      setErrorMsg("Devam etmek için Evet veya Hayır seçin.");
+      setErrorMsg("Devam etmek için bir seçenek belirleyin.");
       return;
     }
     if (!name.trim()) {
       setErrorMsg("Adınızı girin.");
+      return;
+    }
+    if (choice === "yes" && !guestsCount.trim()) {
+      setErrorMsg("Lütfen kaç kişi katılacağınızı belirtin.");
       return;
     }
     setErrorMsg("");
@@ -33,7 +37,7 @@ export default function RsvpPage() {
         body: JSON.stringify({
           name,
           attending: choice === "yes",
-          allergies,
+          allergies: choice === "yes" ? `${guestsCount.trim()} Kişi` : "Katılmıyor",
         }),
       });
       if (!res.ok) throw new Error("failed");
@@ -100,7 +104,9 @@ export default function RsvpPage() {
           onSubmit={handleSubmit}
           className="relative w-full flex flex-col items-center text-center gap-8 z-10"
         >
-          <h1 className="font-display text-2xl sm:text-3xl text-ink tracking-[0.05em] uppercase">Orada olacak mısın?</h1>
+          <h1 className="font-display text-xl sm:text-2xl text-ink tracking-[0.05em] uppercase leading-relaxed max-w-[18rem] sm:max-w-[22rem]">
+            Katılım Sağlamayı Düşünüyor musunuz?
+          </h1>
 
           <div className="flex items-center justify-center gap-8">
             <button
@@ -145,18 +151,20 @@ export default function RsvpPage() {
               />
             </label>
 
-            <label className="flex flex-col gap-2">
-              <span className="font-display text-[10px] tracking-[0.15em] uppercase text-ink-soft leading-relaxed">
-                Alerji veya Gıda Hassasiyeti (varsa)
-              </span>
-              <input
-                value={allergies}
-                onChange={(e) => setAllergies(e.target.value)}
-                type="text"
-                placeholder="Yok / buraya yazın"
-                className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/40 transition-colors duration-300"
-              />
-            </label>
+            {choice === "yes" && (
+              <label className="flex flex-col gap-2 animate-[fadeInField_0.4s_ease-out]">
+                <span className="font-display text-[10px] tracking-[0.15em] uppercase text-ink-soft">
+                  Kaç kişi katılmayı düşünüyorsunuz?
+                </span>
+                <input
+                  value={guestsCount}
+                  onChange={(e) => setGuestsCount(e.target.value)}
+                  type="text"
+                  placeholder="Kişi sayısı yazınız (örneğin: 2)"
+                  className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/40 transition-colors duration-300"
+                />
+              </label>
+            )}
           </div>
 
           {errorMsg && (
@@ -179,6 +187,13 @@ export default function RsvpPage() {
           </Link>
         </form>
       </div>
+
+      <style>{`
+        @keyframes fadeInField {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </main>
   );
 }
