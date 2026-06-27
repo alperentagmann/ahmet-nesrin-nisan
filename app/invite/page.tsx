@@ -151,9 +151,9 @@ export default function InvitePage() {
         </div>
 
         {/* Intertwined Engagement Rings Divider */}
-        <div className="flex items-center gap-3 z-10 opacity-85 my-1.5">
-          <div className="w-8 h-px bg-line" />
-          <svg width="36" height="24" viewBox="0 0 48 32" fill="none" className="text-olive">
+        <div className="flex items-center gap-4.5 z-10 opacity-85 my-2">
+          <div className="w-12 h-px bg-line" />
+          <svg width="48" height="32" viewBox="0 0 48 32" fill="none" className="text-olive scale-105">
             {/* Left Ring (engagement/diamond ring) */}
             <circle cx="18" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
             <path d="M18 4 L21 7 L18 10 L15 7 Z" fill="currentColor" />
@@ -161,7 +161,7 @@ export default function InvitePage() {
             {/* Right Ring */}
             <circle cx="28" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
           </svg>
-          <div className="w-8 h-px bg-line" />
+          <div className="w-12 h-px bg-line" />
         </div>
 
         {/* Invite text */}
