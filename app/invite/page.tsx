@@ -117,13 +117,27 @@ export default function InvitePage() {
           </p>
         </div>
 
-        <div className="w-10 h-px bg-line opacity-80" />
+        {/* Intertwined Engagement Rings Divider */}
+        <div className="flex items-center gap-3 z-10 opacity-85 my-1.5">
+          <div className="w-8 h-px bg-line" />
+          <svg width="36" height="24" viewBox="0 0 48 32" fill="none" className="text-olive">
+            {/* Left Ring (engagement/diamond ring) */}
+            <circle cx="18" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M18 4 L21 7 L18 10 L15 7 Z" fill="currentColor" />
+            <circle cx="18" cy="7" r="1" fill="var(--paper)" />
+            {/* Right Ring */}
+            <circle cx="28" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
+          </svg>
+          <div className="w-8 h-px bg-line" />
+        </div>
 
         {/* Invite text */}
-        <p className="font-body text-[1.12rem] italic text-ink-soft leading-relaxed max-w-[19rem] z-10">
-          Bu mutlu günümüzde sizleri de aramızda görmekten onur duyarız.
+        <p className="font-body text-[1.1rem] italic text-ink-soft leading-relaxed max-w-[21rem] z-10">
+          Birlikte gülmeyi, hayal kurmayı ve aynı yolda yürümeyi seçtik. Bu özel günümüzde yanımızda olmanız bizim için en güzel hediye olacak.
           <br />
-          Lütfen katılım durumunuzu bildiriniz.
+          <span className="mt-3 block not-italic font-display text-[9.5px] tracking-[0.18em] uppercase text-olive-deep font-semibold">
+            Lütfen katılım durumunuzu bildiriniz
+          </span>
         </p>
 
         {/* Date & time */}
