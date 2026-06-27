@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Palette derived from the invitation reference */
-  --cream: #f3efe6;
-  --cream-deep: #ece5d4;
-  --paper: #f8f5ee;
-  --olive: #8d9171;
-  --olive-deep: #6f7456;
-  --olive-soft: #b9bd9f;
-  --ink: #2c2b25;
-  --ink-soft: #4a4a3e;
-  --line: #d4d0bd;
-  --wax: #9a9c79;
-  --wax-deep: #5f6347;
+  /* Palette: Luxury Ivory, Gold/Bronze, and Charcoal Ink */
+  --cream: #faf9f6;      /* Pure porcelain/warm white */
+  --cream-deep: #f4f3ee; /* Linen white for backgrounds/panels */
+  --paper: #ffffff;      /* Pure card white */
+  --olive: #c5a880;      /* Antique Gold */
+  --olive-deep: #9a7e58; /* Muted Gold / Bronze */
+  --olive-soft: #dcd3c4; /* Soft Gold lines */
+  --ink: #1c1a17;        /* Charcoal Black */
+  --ink-soft: #575249;   /* Warm Dark Grey */
+  --line: #e3decb;       /* Fine Line Gold */
+  --wax: #c5a880;        /* Gold Wax Seal */
+  --wax-deep: #9a7e58;   /* Deep Gold Seal Shadow */
 }
 
 @theme inline {
   --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
   --color-paper: var(--paper);
   --color-olive: var(--olive);
   --color-olive-deep: var(--olive-deep);
@@ -26,6 +27,7 @@
   --color-line: var(--line);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-script: var(--font-script);
 }
 
 * {
@@ -42,8 +44,13 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display), "Playfair Display", serif;
+  font-family: var(--font-display), "Cinzel", serif;
 }
+
+.font-script {
+  font-family: var(--font-script), "Great Vibes", cursive;
+}
+
 
 ::selection {
   background: var(--olive-soft);

@@ -17,9 +17,9 @@ export default function WaxSeal({ size = 140, className = "" }: WaxSealProps) {
     >
       <defs>
         <radialGradient id="waxBody" cx="38%" cy="32%" r="75%">
-          <stop offset="0%" stopColor="#a8ab86" />
-          <stop offset="55%" stopColor="#8d9171" />
-          <stop offset="100%" stopColor="#6f7456" />
+          <stop offset="0%" stopColor="#e8dec9" />
+          <stop offset="55%" stopColor="#c5a880" />
+          <stop offset="100%" stopColor="#9a7e58" />
         </radialGradient>
         <filter id="waxTexture" x="-20%" y="-20%" width="140%" height="140%">
           <feTurbulence
@@ -38,25 +38,25 @@ export default function WaxSeal({ size = 140, className = "" }: WaxSealProps) {
           />
         </filter>
       </defs>
-
+ 
       {/* irregular blob edge to mimic dripped wax */}
       <g filter="url(#waxTexture)">
         <circle cx="100" cy="100" r="84" fill="url(#waxBody)" />
       </g>
-
+ 
       {/* inner pressed ring */}
       <circle
         cx="100"
         cy="100"
         r="68"
         fill="none"
-        stroke="#5f6347"
+        stroke="#806745"
         strokeWidth="1.5"
         opacity="0.5"
       />
-
+ 
       {/* sprig motif */}
-      <g stroke="#f3efe6" strokeWidth="2.2" fill="none" strokeLinecap="round">
+      <g stroke="#faf9f6" strokeWidth="2.2" fill="none" strokeLinecap="round">
         <path d="M100 60 L100 142" />
         <path d="M100 78 C 88 72, 80 76, 76 86" />
         <path d="M100 78 C 112 72, 120 76, 124 86" />
@@ -65,12 +65,12 @@ export default function WaxSeal({ size = 140, className = "" }: WaxSealProps) {
         <path d="M100 114 C 89 111, 82 115, 78 123" />
         <path d="M100 114 C 111 111, 118 115, 122 123" />
       </g>
-      <circle cx="76" cy="86" r="2.4" fill="#f3efe6" />
-      <circle cx="124" cy="86" r="2.4" fill="#f3efe6" />
-      <circle cx="73" cy="106" r="2.4" fill="#f3efe6" />
-      <circle cx="127" cy="106" r="2.4" fill="#f3efe6" />
-      <circle cx="78" cy="123" r="2.4" fill="#f3efe6" />
-      <circle cx="122" cy="123" r="2.4" fill="#f3efe6" />
+      <circle cx="76" cy="86" r="2.4" fill="#faf9f6" />
+      <circle cx="124" cy="86" r="2.4" fill="#faf9f6" />
+      <circle cx="73" cy="106" r="2.4" fill="#faf9f6" />
+      <circle cx="127" cy="106" r="2.4" fill="#faf9f6" />
+      <circle cx="78" cy="123" r="2.4" fill="#faf9f6" />
+      <circle cx="122" cy="123" r="2.4" fill="#faf9f6" />
     </svg>
   );
 }

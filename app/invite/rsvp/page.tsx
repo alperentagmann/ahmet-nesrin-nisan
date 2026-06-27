@@ -46,116 +46,139 @@ export default function RsvpPage() {
 
   if (status === "done") {
     return (
-      <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-6 py-16 text-center gap-6">
-        <h1 className="font-display text-3xl text-ink">Teşekkürler!</h1>
-        <p className="font-body text-lg text-ink-soft max-w-xs">
-          {choice === "yes"
-            ? "Katılımınız onaylandı. Sizi görmek için sabırsızlanıyoruz!"
-            : "Bize bildirdiğiniz için teşekkürler."}
-        </p>
-        <Link
-          href="/invite"
-          className="font-body text-[12px] tracking-[0.14em] uppercase text-olive-deep border border-line rounded-full px-6 py-3 hover:bg-olive hover:text-cream hover:border-olive transition-colors duration-300"
-        >
-          Davetiyeye dön
-        </Link>
+      <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 text-center">
+        {/* paper texture */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, var(--ink) 1.5px, transparent 0)",
+            backgroundSize: "4px 4px",
+          }}
+        />
+
+        <div className="relative w-full max-w-sm bg-paper border border-olive-soft/35 px-6 py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-6">
+          <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />
+          <div className="absolute inset-3.5 border border-olive-soft/15 pointer-events-none rounded-[1px]" />
+
+          <h1 className="font-display text-2xl text-ink tracking-[0.05em] uppercase z-10">Teşekkürler!</h1>
+          <p className="font-body text-[1.1rem] italic text-ink-soft/90 max-w-xs z-10">
+            {choice === "yes"
+              ? "Katılımınız onaylandı. Sizi görmek için sabırsızlanıyoruz!"
+              : "Bize bildirdiğiniz için teşekkürler."}
+          </p>
+          <Link
+            href="/invite"
+            className="font-display text-[11px] tracking-[0.16em] uppercase text-olive-deep border border-olive-soft/45 rounded-full px-6 py-3 hover:bg-olive hover:text-cream hover:border-olive transition-colors duration-300 z-10"
+          >
+            Davetiyeye dön
+          </Link>
+        </div>
       </main>
     );
   }
 
   return (
-    <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center px-6 py-16 sm:py-24">
+    <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 sm:py-20">
+      {/* paper texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, #2c2b25 1px, transparent 0)",
-          backgroundSize: "3px 3px",
+            "radial-gradient(circle at 1px 1px, var(--ink) 1.5px, transparent 0)",
+          backgroundSize: "4px 4px",
         }}
       />
 
-      <form
-        onSubmit={handleSubmit}
-        className="relative w-full max-w-sm flex flex-col items-center text-center gap-8"
-      >
-        <h1 className="font-display text-3xl text-ink">Orada olacak mısın?</h1>
+      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-16 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center animate-[fadeIn_0.7s_ease-out]">
+        
+        {/* Double Border Frame */}
+        <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />
+        <div className="absolute inset-3.5 border border-olive-soft/15 pointer-events-none rounded-[1px]" />
 
-        <div className="flex items-center justify-center gap-8">
-          <button
-            type="button"
-            onClick={() => setChoice("yes")}
-            className={`w-20 h-20 rounded-full font-body text-lg tracking-wide transition-all duration-300 ease-out border ${
-              choice === "yes"
-                ? "bg-olive text-cream border-olive shadow-[0_4px_14px_rgba(95,99,71,0.35)] scale-105"
-                : "bg-transparent text-ink-soft border-line hover:border-olive"
-            }`}
-          >
-            Evet
-          </button>
-          <button
-            type="button"
-            onClick={() => setChoice("no")}
-            className={`w-20 h-20 rounded-full font-body text-lg tracking-wide transition-all duration-300 ease-out border ${
-              choice === "no"
-                ? "bg-olive text-cream border-olive shadow-[0_4px_14px_rgba(95,99,71,0.35)] scale-105"
-                : "bg-transparent text-ink-soft border-line hover:border-olive"
-            }`}
-          >
-            Hayır
-          </button>
-        </div>
-
-        <p className="font-body text-[0.98rem] text-ink-soft leading-relaxed">
-          Düğün Tarihine Kadar Katılım Durumunuzu Bildiriniz
-        </p>
-
-        <div className="w-full flex flex-col gap-4 text-left">
-          <label className="flex flex-col gap-1.5">
-            <span className="font-body text-[12px] tracking-[0.12em] uppercase text-ink-soft">
-              Ad ve soyad
-            </span>
-            <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Adınız"
-              className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/50 transition-colors duration-300"
-            />
-          </label>
-
-          <label className="flex flex-col gap-1.5">
-            <span className="font-body text-[12px] tracking-[0.12em] uppercase text-ink-soft leading-relaxed">
-              Onay sırasında varsa alerji veya gıda intoleranslarınızı bize bildirin
-            </span>
-            <input
-              value={allergies}
-              onChange={(e) => setAllergies(e.target.value)}
-              type="text"
-              placeholder="Yok / buraya yazın"
-              className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/50 transition-colors duration-300"
-            />
-          </label>
-        </div>
-
-        {errorMsg && (
-          <p className="font-body text-sm text-[#a85c4a]">{errorMsg}</p>
-        )}
-
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className="w-full font-body text-[13px] tracking-[0.16em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60"
+        <form
+          onSubmit={handleSubmit}
+          className="relative w-full flex flex-col items-center text-center gap-8 z-10"
         >
-          {status === "submitting" ? "Gönderiliyor…" : "Onayla"}
-        </button>
+          <h1 className="font-display text-2xl sm:text-3xl text-ink tracking-[0.05em] uppercase">Orada olacak mısın?</h1>
 
-        <Link
-          href="/invite"
-          className="font-body text-[12px] tracking-[0.14em] uppercase text-ink-soft border border-line rounded-full px-6 py-3 hover:border-olive transition-colors duration-300"
-        >
-          Davetiyeye dön
-        </Link>
-      </form>
+          <div className="flex items-center justify-center gap-8">
+            <button
+              type="button"
+              onClick={() => setChoice("yes")}
+              className={`w-20 h-20 rounded-full font-body text-[1.1rem] tracking-wide transition-all duration-300 ease-out border cursor-pointer ${
+                choice === "yes"
+                  ? "bg-olive text-cream border-olive shadow-[0_4px_14px_rgba(197,168,128,0.35)] scale-105"
+                  : "bg-transparent text-ink-soft border-line hover:border-olive"
+              }`}
+            >
+              Evet
+            </button>
+            <button
+              type="button"
+              onClick={() => setChoice("no")}
+              className={`w-20 h-20 rounded-full font-body text-[1.1rem] tracking-wide transition-all duration-300 ease-out border cursor-pointer ${
+                choice === "no"
+                  ? "bg-olive text-cream border-olive shadow-[0_4px_14px_rgba(197,168,128,0.35)] scale-105"
+                  : "bg-transparent text-ink-soft border-line hover:border-olive"
+              }`}
+            >
+              Hayır
+            </button>
+          </div>
+
+          <p className="font-body text-[0.95rem] italic text-ink-soft/90 leading-relaxed max-w-[16rem]">
+            Düğün Tarihine Kadar Katılım Durumunuzu Bildiriniz
+          </p>
+
+          <div className="w-full flex flex-col gap-5 text-left pt-2">
+            <label className="flex flex-col gap-2">
+              <span className="font-display text-[10px] tracking-[0.15em] uppercase text-ink-soft">
+                Ad ve soyad
+              </span>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="Adınız"
+                className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/40 transition-colors duration-300"
+              />
+            </label>
+
+            <label className="flex flex-col gap-2">
+              <span className="font-display text-[10px] tracking-[0.15em] uppercase text-ink-soft leading-relaxed">
+                Alerji veya Gıda Hassasiyeti (varsa)
+              </span>
+              <input
+                value={allergies}
+                onChange={(e) => setAllergies(e.target.value)}
+                type="text"
+                placeholder="Yok / buraya yazın"
+                className="font-body text-base bg-transparent border-b border-line focus:border-olive outline-none py-2 placeholder:text-ink-soft/40 transition-colors duration-300"
+              />
+            </label>
+          </div>
+
+          {errorMsg && (
+            <p className="font-body text-sm text-[#a85c4a]">{errorMsg}</p>
+          )}
+
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)]"
+          >
+            {status === "submitting" ? "Gönderiliyor…" : "Onayla"}
+          </button>
+
+          <Link
+            href="/invite"
+            className="font-display text-[11px] tracking-[0.16em] uppercase text-ink-soft border border-line rounded-full px-6 py-3 hover:border-olive transition-colors duration-300"
+          >
+            Davetiyeye dön
+          </Link>
+        </form>
+      </div>
     </main>
   );
 }
