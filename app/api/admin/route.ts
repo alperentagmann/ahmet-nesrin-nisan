@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllRsvps } from "@/lib/rsvp-store";
+import { getAllRsvps, getAllNotes } from "@/lib/rsvp-store";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "ahmetnesrin123";
 
@@ -15,14 +15,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const entries = await getAllRsvps();
+    const [entries, notes] = await Promise.all([getAllRsvps(), getAllNotes()]);
     const summary = {
       total: entries.length,
       attending: entries.filter((e) => e.attending).length,
       notAttending: entries.filter((e) => !e.attending).length,
     };
 
-    return NextResponse.json({ ok: true, summary, entries });
+    return NextResponse.json({ ok: true, summary, entries, notes });
   } catch (err) {
     console.error(err);
     const message = err instanceof Error ? err.message : "Bir hata oluştu.";

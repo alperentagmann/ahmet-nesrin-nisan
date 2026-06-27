@@ -13,6 +13,9 @@ export default function RsvpPage() {
   const [guestsCount, setGuestsCount] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [noteText, setNoteText] = useState("");
+  const [noteSent, setNoteSent] = useState(false);
+  const [noteSending, setNoteSending] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -148,6 +151,70 @@ export default function RsvpPage() {
               </a>
             </div>
           )}
+
+          {/* ─── Guest Note Section ─── */}
+          <div className="z-10 w-full">
+            {/* Subtle divider */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="flex-1 h-px bg-olive-soft/25" />
+              <span className="font-display text-[8px] tracking-[0.25em] uppercase text-ink-soft/35">not</span>
+              <div className="flex-1 h-px bg-olive-soft/25" />
+            </div>
+
+            {noteSent ? (
+              <div className="flex flex-col items-center gap-2 py-2 animate-[fadeIn_0.6s_ease-out]">
+                {/* Heart */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#c5a880" stroke="none">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <p className="font-body text-[13px] italic text-ink-soft/70 text-center">
+                  Notunuz iletildi, teşekkürler 💌
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                <p className="font-body text-[12.5px] italic text-ink-soft/65 text-center leading-relaxed">
+                  Dilerseniz, bu mutlu günümüz için bir not bırakabilirsiniz
+                </p>
+                <textarea
+                  value={noteText}
+                  onChange={(e) => setNoteText(e.target.value)}
+                  maxLength={400}
+                  rows={3}
+                  placeholder="Güzel bir şey yazın…"
+                  className="w-full font-body text-[13px] italic text-ink bg-transparent border border-olive-soft/25 rounded-[4px] px-4 py-3 focus:border-[#c5a880] outline-none resize-none placeholder:text-ink-soft/30 transition-colors duration-300 leading-relaxed"
+                />
+                {noteText.trim().length > 0 && (
+                  <button
+                    onClick={async () => {
+                      if (!noteText.trim() || noteSending) return;
+                      setNoteSending(true);
+                      try {
+                        await fetch("/api/note", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ name, message: noteText }),
+                        });
+                        setNoteSent(true);
+                      } catch {
+                        setNoteSent(true); // Fail silently, don't distress the guest
+                      } finally {
+                        setNoteSending(false);
+                      }
+                    }}
+                    disabled={noteSending}
+                    className="self-end flex items-center gap-1.5 font-display text-[9px] tracking-[0.18em] uppercase text-[#c5a880] border border-[#c5a880]/35 rounded-full px-4 py-2 hover:bg-[#c5a880]/10 transition-colors duration-300 disabled:opacity-50 cursor-pointer animate-[fadeIn_0.4s_ease-out]"
+                  >
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"/>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    {noteSending ? "Gönderiliyor…" : "Gönder"}
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Closing message */}
           <p className="z-10 font-display text-[13px] tracking-[0.28em] uppercase text-[#c5a880]">

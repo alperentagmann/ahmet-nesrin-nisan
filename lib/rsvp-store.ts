@@ -60,3 +60,32 @@ export async function getRsvpSummary(): Promise<{
     notAttending: entries.filter((e) => !e.attending).length,
   }
 }
+
+/* ─── Guest Notes ─── */
+const NOTES_KEY = "rsvp:notes"
+
+export type NoteEntry = {
+  id: string
+  name: string
+  message: string
+  createdAt: string
+}
+
+export async function addNote(input: {
+  name: string
+  message: string
+}): Promise<NoteEntry> {
+  const entry: NoteEntry = {
+    id: crypto.randomUUID(),
+    name: input.name.trim(),
+    message: input.message.trim(),
+    createdAt: new Date().toISOString(),
+  }
+  await getRedis().lpush(NOTES_KEY, JSON.stringify(entry))
+  return entry
+}
+
+export async function getAllNotes(): Promise<NoteEntry[]> {
+  const raw = await getRedis().lrange(NOTES_KEY, 0, -1)
+  return (raw ?? []) as unknown as NoteEntry[]
+}

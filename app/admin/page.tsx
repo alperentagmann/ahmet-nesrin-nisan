@@ -17,6 +17,13 @@ type Summary = {
   notAttending: number;
 };
 
+type NoteEntry = {
+  id: string;
+  name: string;
+  message: string;
+  createdAt: string;
+};
+
 export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
@@ -27,6 +34,7 @@ export default function AdminPage() {
   const [filter, setFilter] = useState<"all" | "yes" | "no">("all");
   const [search, setSearch] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+  const [notes, setNotes] = useState<NoteEntry[]>([]);
 
   async function fetchData(pwd: string, isRefresh = false) {
     if (isRefresh) setRefreshing(true);
@@ -45,6 +53,7 @@ export default function AdminPage() {
       }
       setSummary(data.summary);
       setEntries(data.entries);
+      setNotes(data.notes ?? []);
       setAuthed(true);
     } catch {
       setErrorMsg("Bir hata oluştu. Tekrar deneyin.");
@@ -64,6 +73,7 @@ export default function AdminPage() {
     setPassword("");
     setSummary(null);
     setEntries([]);
+    setNotes([]);
     setSearch("");
     setFilter("all");
   }
@@ -323,6 +333,31 @@ export default function AdminPage() {
             </div>
           )}
         </div>
+
+        {/* Guest Notes Panel */}
+        {notes.length > 0 && (
+          <div className="bg-paper border border-olive-soft/30 rounded-[3px] shadow-[0_4px_16px_rgba(28,26,23,0.03)] overflow-hidden">
+            <div className="px-5 py-3.5 border-b border-line flex items-center gap-2">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#c5a880" stroke="none">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span className="font-display text-[9px] tracking-[0.18em] uppercase text-ink-soft">
+                Misafir Notları · {notes.length}
+              </span>
+            </div>
+            <div className="divide-y divide-line/60">
+              {notes.map((note) => (
+                <div key={note.id} className="px-5 py-4">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="font-display text-[10px] tracking-[0.1em] uppercase text-[#c5a880]">{note.name}</span>
+                    <span className="font-display text-[9px] tracking-[0.08em] uppercase text-ink-soft/40">{formatDate(note.createdAt)}</span>
+                  </div>
+                  <p className="font-body text-[13.5px] italic text-ink/80 leading-relaxed">&ldquo;{note.message}&rdquo;</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Footer */}
         <p className="text-center font-display text-[8px] tracking-[0.18em] uppercase text-ink-soft/30 pb-4">
