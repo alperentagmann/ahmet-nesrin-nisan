@@ -18,8 +18,8 @@ export const inviteConfig = {
     },
   },
   eventDate: "2026-07-12T13:00:00",
-  dateLabel: "Pazar 12.07.26",
-  timeLabel: "saat 13:00-16:00",
+  dateLabel: "12.07.2026 Pazar",
+  timeLabel: "13.00-16.00",
   venueName: "Lidya Garden",
   venueAddress: "Karaağaç, Büyükçekmece Karaağaç Köyü Yolu No:1, 34488 Büyükçekmece/İstanbul",
   mapsUrl:
