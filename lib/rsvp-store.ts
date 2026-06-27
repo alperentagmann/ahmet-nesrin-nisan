@@ -1,9 +1,21 @@
 import { Redis } from "@upstash/redis"
 
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
-})
+let redis: Redis | null = null
+
+function getRedis(): Redis {
+  if (!redis) {
+    const url = process.env.KV_REST_API_URL
+    const token = process.env.KV_REST_API_TOKEN
+    if (!url || !token) {
+      throw new Error(
+        "KV_REST_API_URL ve KV_REST_API_TOKEN environment variable'ları eksik. " +
+        "Vercel Dashboard > Storage > KV bağlantısını kontrol edin."
+      )
+    }
+    redis = new Redis({ url, token })
+  }
+  return redis
+}
 
 const RSVP_KEY = "rsvp:entries"
 
@@ -27,12 +39,12 @@ export async function addRsvp(input: {
     allergies: input.allergies.trim(),
     createdAt: new Date().toISOString(),
   }
-  await redis.lpush(RSVP_KEY, JSON.stringify(entry))
+  await getRedis().lpush(RSVP_KEY, JSON.stringify(entry))
   return entry
 }
 
 export async function getAllRsvps(): Promise<RsvpEntry[]> {
-  const raw = await redis.lrange(RSVP_KEY, 0, -1)
+  const raw = await getRedis().lrange(RSVP_KEY, 0, -1)
   return (raw ?? []).map((r) => JSON.parse(r as string) as RsvpEntry)
 }
 

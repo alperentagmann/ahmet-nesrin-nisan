@@ -25,8 +25,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, summary, entries });
   } catch (err) {
     console.error(err);
+    const message = err instanceof Error ? err.message : "Bir hata oluştu.";
     return NextResponse.json(
-      { error: "Bir hata oluştu." },
+      { error: message },
       { status: 500 }
     );
   }
