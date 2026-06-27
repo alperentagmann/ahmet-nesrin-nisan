@@ -63,7 +63,7 @@ function CircleAction({
 }
 
 export default function InvitePage() {
-  const { coupleNames, dateLabel, timeLabel, venueName, venueAddress, mapsUrl, receptionNote } =
+  const { coupleNames, parents, dateLabel, timeLabel, venueName, venueAddress, mapsUrl, receptionNote } =
     inviteConfig;
 
   return (
@@ -79,14 +79,22 @@ export default function InvitePage() {
 
       <div className="relative w-full max-w-sm flex flex-col items-center text-center gap-10 animate-[fadeIn_0.7s_ease-out]">
         {/* Names */}
-        <div className="flex flex-col items-center">
-          <h1 className="font-display text-[2.6rem] leading-[1.05] tracking-wide text-ink">
+        <div className="flex flex-col items-center gap-1">
+          <p className="font-body text-[0.95rem] italic text-ink-soft leading-snug">
+            {parents.bride.names}
+          </p>
+          <h1 className="font-display text-[2.6rem] leading-[1.05] tracking-wide text-ink mt-1">
             {coupleNames.first}
           </h1>
-          <span className="font-display text-2xl text-olive-deep my-1">&</span>
+
+          <span className="font-display text-2xl text-olive-deep my-2">&</span>
+
           <h1 className="font-display text-[2.6rem] leading-[1.05] tracking-wide text-ink">
             {coupleNames.second}
           </h1>
+          <p className="font-body text-[0.95rem] italic text-ink-soft leading-snug mt-1">
+            {parents.groom.names}
+          </p>
         </div>
 
         <div className="w-12 h-px bg-line" />
@@ -110,9 +118,11 @@ export default function InvitePage() {
           <p className="font-body text-[1rem] text-ink-soft">{venueAddress}</p>
         </div>
 
-        <p className="font-body text-[0.98rem] text-ink-soft leading-relaxed max-w-[20rem]">
-          {receptionNote}
-        </p>
+        {receptionNote && (
+          <p className="font-body text-[0.98rem] text-ink-soft leading-relaxed max-w-[20rem]">
+            {receptionNote}
+          </p>
+        )}
 
         {/* Action buttons */}
         <div className="flex items-center justify-center gap-10 pt-2">

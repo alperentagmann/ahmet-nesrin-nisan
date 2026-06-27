@@ -6,6 +6,17 @@ export const inviteConfig = {
     first: "Nesrin",
     second: "Ahmet Burak",
   },
+  // Anne-baba isimleri, gelin ve damat tarafı için ayrı ayrı.
+  parents: {
+    bride: {
+      label: "Gelinin Ailesi",
+      names: "Hadice ve Tuncay Saraç",
+    },
+    groom: {
+      label: "Damadın Ailesi",
+      names: "Mine ve A.Kadir Tağman",
+    },
+  },
   eventDate: "2026-07-12T13:00:00",
   dateLabel: "Pazar 12.07.26",
   timeLabel: "saat 13:00-16:00",
