@@ -122,42 +122,37 @@ export default function InvitePage() {
           Nişanımıza Davetlisiniz
         </p>
 
-        {/* Rings Hero Section with Names Overlay */}
-        <div className="relative w-full aspect-[16/11] rounded-xl overflow-hidden border border-olive-soft/25 shadow-md z-10 flex items-center justify-center bg-cream-deep/30">
-          <img
-            src="/rings-bg.png"
-            alt="Nişan Yüzükleri"
-            className="absolute inset-0 w-full h-full object-cover opacity-90"
-          />
-          {/* Subtle gradient overlay to enhance text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-paper/30 via-transparent to-paper/20 pointer-events-none" />
-          
-          {/* Overlay Names */}
-          <div className="relative w-full h-full flex items-center justify-center px-4 z-10">
-            <div className="flex items-center justify-between w-full max-w-[19rem] text-[#806745] select-none font-semibold">
-              <span className="font-script text-[3rem] sm:text-[3.6rem] leading-none -rotate-6 transform -translate-y-2 -translate-x-1 filter drop-shadow-[0_2px_4px_rgba(255,255,255,0.85)]">
-                {coupleNames.first}
-              </span>
-              <span className="font-body text-base italic text-ink-soft/90 mx-3 transform translate-y-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
-                &amp;
-              </span>
-              <span className="font-script text-[3rem] sm:text-[3.6rem] leading-none -rotate-6 transform translate-y-3 translate-x-1 filter drop-shadow-[0_2px_4px_rgba(255,255,255,0.85)]">
-                {coupleNames.second}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Parents Section */}
-        <div className="flex flex-col gap-1 sm:gap-1.5 z-10 mt-1">
-          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft/95 leading-snug">
-            <span className="font-display text-[9px] tracking-[0.1em] not-italic uppercase font-semibold text-olive-deep mr-1.5">{parents.bride.label}:</span>
+        {/* Names & Parents */}
+        <div className="flex flex-col items-center gap-1.5 z-10">
+          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug">
             {parents.bride.names}
           </p>
-          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft/95 leading-snug">
-            <span className="font-display text-[9px] tracking-[0.1em] not-italic uppercase font-semibold text-olive-deep mr-1.5">{parents.groom.label}:</span>
+          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-3.5 mb-1.5">
+            {coupleNames.first}
+          </h1>
+
+          <span className="font-body text-lg italic text-ink-soft/75 my-1">&amp;</span>
+
+          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-1 mb-3.5">
+            {coupleNames.second}
+          </h1>
+          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug">
             {parents.groom.names}
           </p>
+        </div>
+
+        {/* Intertwined Engagement Rings Divider */}
+        <div className="flex items-center gap-3 z-10 opacity-85 my-1.5">
+          <div className="w-8 h-px bg-line" />
+          <svg width="36" height="24" viewBox="0 0 48 32" fill="none" className="text-olive">
+            {/* Left Ring (engagement/diamond ring) */}
+            <circle cx="18" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M18 4 L21 7 L18 10 L15 7 Z" fill="currentColor" />
+            <circle cx="18" cy="7" r="1" fill="var(--paper)" />
+            {/* Right Ring */}
+            <circle cx="28" cy="18" r="9" stroke="currentColor" strokeWidth="1.6" />
+          </svg>
+          <div className="w-8 h-px bg-line" />
         </div>
 
         {/* Invite text */}
