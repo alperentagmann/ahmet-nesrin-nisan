@@ -171,9 +171,6 @@ main {
   0% {
     transform: translateX(-180%) skewX(-30deg);
   }
-  25% {
-    transform: translateX(180%) skewX(-30deg);
-  }
   100% {
     transform: translateX(180%) skewX(-30deg);
   }
@@ -203,7 +200,7 @@ main {
     rgba(255, 255, 255, 0) 100%
   );
   filter: blur(4px);
-  animation: lightSweep 2.8s infinite linear;
+  animation: lightSweep 1.8s infinite linear;
 }
 
 /* Yanar Söner Buton Glow Pulse */
