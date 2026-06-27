@@ -89,6 +89,10 @@ export default function InvitePage() {
 
       {/* The Invitation Card */}
       <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-7 sm:gap-8 animate-[fadeIn_0.7s_ease-out] luxury-card border-glow-breath z-20">
+        {/* Glossy Light Sweep (Yanarlı Dönerli Altın Işık Süzmesi) */}
+        <div className="light-sweep-container">
+          <div className="light-sweep" />
+        </div>
         {/* Twinkling Sparkles (Yanarlı Dönerli Yıldızlar) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
           <svg className="absolute top-[6%] left-[8%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.2s', animationDuration: '3s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
