@@ -165,7 +165,7 @@ export default function InvitePage() {
         </p>
 
         {/* Date & Time */}
-        <div className="flex flex-col gap-2 z-10 items-center">
+        <div className="flex flex-col gap-2.5 z-10 items-center">
           <div className="flex items-center justify-center text-ink gap-2">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--olive)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -173,15 +173,15 @@ export default function InvitePage() {
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            <span className="font-display text-[0.98rem] tracking-[0.14em] uppercase">{dateLabel}</span>
+            <span className="font-display text-[1.02rem] tracking-[0.12em] uppercase">{dateLabel}</span>
           </div>
           
-          <div className="flex items-center justify-center text-ink-soft gap-2">
+          <div className="flex items-center justify-center text-ink gap-2">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--olive)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span className="font-body text-[1rem] italic">{timeLabel}</span>
+            <span className="font-display text-[1.02rem] tracking-[0.12em] uppercase">{timeLabel}</span>
           </div>
         </div>
 
