@@ -205,6 +205,7 @@ main {
 
 /* Yanar Söner Buton Glow Pulse */
 .btn-glow-pulse {
+  background-color: #c5a880;
   animation: buttonBgGlowPulse 1.6s infinite ease-in-out;
 }
 

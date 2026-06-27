@@ -43,7 +43,7 @@ function CircleAction({
 }) {
   const content = (
     <div className="flex flex-col items-center gap-2.5 group cursor-pointer">
-      <span className="w-14 h-14 rounded-full bg-[#c5a880] text-white flex items-center justify-center shadow-[0_4px_14px_rgba(197,168,128,0.35)] transition-all duration-300 ease-out group-hover:scale-108 group-hover:bg-[#9a7e58] group-active:scale-95 btn-glow-pulse">
+      <span className="w-14 h-14 rounded-full text-white flex items-center justify-center shadow-[0_4px_14px_rgba(197,168,128,0.35)] transition-all duration-300 ease-out group-hover:scale-108 group-hover:bg-[#9a7e58] group-active:scale-95 btn-glow-pulse">
         {icon}
       </span>
       <span className="font-display text-[9px] tracking-[0.2em] uppercase text-ink-soft transition-colors duration-300 group-hover:text-[#9a7e58]">
