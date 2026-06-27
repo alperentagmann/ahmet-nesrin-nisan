@@ -134,7 +134,7 @@ export default function RsvpPage() {
           </div>
 
           <p className="font-body text-[0.95rem] italic text-ink-soft/90 leading-relaxed max-w-[16rem]">
-            Düğün Tarihine Kadar Katılım Durumunuzu Bildiriniz
+            Nişan Tarihine Kadar Katılım Durumunuzu Bildiriniz
           </p>
 
           <div className="w-full flex flex-col gap-5 text-left pt-2">
