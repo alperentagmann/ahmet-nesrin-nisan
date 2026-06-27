@@ -88,10 +88,31 @@ export default function InvitePage() {
       />
 
       {/* The Invitation Card */}
-      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-7 sm:gap-8 animate-[fadeIn_0.7s_ease-out] luxury-card z-20">
+      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-7 sm:gap-8 animate-[fadeIn_0.7s_ease-out] luxury-card border-glow-breath z-20">
+        {/* Twinkling Sparkles (Yanarlı Dönerli Yıldızlar) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+          <svg className="absolute top-[6%] left-[8%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.2s', animationDuration: '3s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+          <svg className="absolute top-[16%] right-[6%] text-olive/40 animate-twinkle" style={{ animationDelay: '1.5s', animationDuration: '4s' }} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+          <svg className="absolute bottom-[20%] left-[5%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.8s', animationDuration: '3.5s' }} width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+          <svg className="absolute bottom-[8%] right-[8%] text-olive/40 animate-twinkle" style={{ animationDelay: '2.2s', animationDuration: '2.8s' }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+          <svg className="absolute top-[48%] left-[6%] text-olive/40 animate-twinkle" style={{ animationDelay: '1.8s', animationDuration: '3.2s' }} width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+          <svg className="absolute top-[38%] right-[5%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.5s', animationDuration: '4.2s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
+          </svg>
+        </div>
         
         {/* Double Border Frame */}
-        <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />
+        <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px] border-glow-breath" />
         <div className="absolute inset-3.5 border border-olive-soft/15 pointer-events-none rounded-[1px]" />
 
         {/* Corner Floral Ornaments */}

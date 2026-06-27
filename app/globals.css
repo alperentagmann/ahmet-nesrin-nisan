@@ -133,3 +133,35 @@ main {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 30px 65px rgba(90, 75, 55, 0.12), 0 0 20px rgba(197, 168, 128, 0.15);
 }
+
+/* Shimmering Sparkling animations */
+.animate-twinkle {
+  animation: twinkleSparkle infinite ease-in-out;
+}
+
+@keyframes twinkleSparkle {
+  0%, 100% {
+    transform: scale(0.35) rotate(0deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.15) rotate(90deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px rgba(197, 168, 128, 0.75));
+  }
+}
+
+.border-glow-breath {
+  animation: borderGlowBreath 4s infinite ease-in-out;
+}
+
+@keyframes borderGlowBreath {
+  0%, 100% {
+    border-color: rgba(197, 168, 128, 0.3);
+    box-shadow: 0 16px 40px rgba(28, 26, 23, 0.03), 0 0 4px rgba(197, 168, 128, 0.05);
+  }
+  50% {
+    border-color: rgba(197, 168, 128, 0.85);
+    box-shadow: 0 16px 40px rgba(28, 26, 23, 0.04), 0 0 16px rgba(197, 168, 128, 0.35);
+  }
+}
