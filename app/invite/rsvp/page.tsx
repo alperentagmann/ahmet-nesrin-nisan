@@ -51,9 +51,17 @@ export default function RsvpPage() {
   if (status === "done") {
     return (
       <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 text-center">
+        {/* Floating particles */}
+        <div className="particle-layer">
+          <div className="particle w-1.5 h-1.5 left-[10%]" style={{ animationDelay: "0.5s", animationDuration: "13s" }} />
+          <div className="particle w-1 h-1 left-[25%]" style={{ animationDelay: "2.5s", animationDuration: "11s" }} />
+          <div className="particle w-2 h-2 left-[50%]" style={{ animationDelay: "1.5s", animationDuration: "15s" }} />
+          <div className="particle w-1.5 h-1.5 left-[75%]" style={{ animationDelay: "4.5s", animationDuration: "12s" }} />
+        </div>
+
         {/* paper texture */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply"
+          className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply z-10"
           style={{
             backgroundImage:
               "radial-gradient(circle at 1px 1px, var(--ink) 1.5px, transparent 0)",
@@ -61,7 +69,7 @@ export default function RsvpPage() {
           }}
         />
 
-        <div className="relative w-full max-w-sm bg-paper border border-olive-soft/35 px-6 py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-6">
+        <div className="relative w-full max-w-sm bg-paper border border-olive-soft/35 px-6 py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-6 luxury-card z-20">
           <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />
           <div className="absolute inset-3.5 border border-olive-soft/15 pointer-events-none rounded-[1px]" />
 
@@ -84,9 +92,17 @@ export default function RsvpPage() {
 
   return (
     <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 sm:py-20">
+      {/* Floating particles */}
+      <div className="particle-layer">
+        <div className="particle w-1.5 h-1.5 left-[10%]" style={{ animationDelay: "0.5s", animationDuration: "13s" }} />
+        <div className="particle w-1 h-1 left-[25%]" style={{ animationDelay: "2.5s", animationDuration: "11s" }} />
+        <div className="particle w-2 h-2 left-[50%]" style={{ animationDelay: "1.5s", animationDuration: "15s" }} />
+        <div className="particle w-1.5 h-1.5 left-[75%]" style={{ animationDelay: "4.5s", animationDuration: "12s" }} />
+      </div>
+
       {/* paper texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply z-10"
         style={{
           backgroundImage:
             "radial-gradient(circle at 1px 1px, var(--ink) 1.5px, transparent 0)",
@@ -94,7 +110,7 @@ export default function RsvpPage() {
         }}
       />
 
-      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-16 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center animate-[fadeIn_0.7s_ease-out]">
+      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-16 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center animate-[fadeIn_0.7s_ease-out] luxury-card z-20">
         
         {/* Double Border Frame */}
         <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px]" />

@@ -18,9 +18,18 @@ export default function Home() {
 
   return (
     <main className="relative flex-1 min-h-screen overflow-hidden bg-cream flex items-center justify-center">
+      {/* Floating particles */}
+      <div className="particle-layer">
+        <div className="particle w-1.5 h-1.5 left-[12%]" style={{ animationDelay: "0s", animationDuration: "14s" }} />
+        <div className="particle w-1 h-1 left-[28%]" style={{ animationDelay: "3s", animationDuration: "12s" }} />
+        <div className="particle w-2 h-2 left-[48%]" style={{ animationDelay: "1s", animationDuration: "16s" }} />
+        <div className="particle w-1.5 h-1.5 left-[68%]" style={{ animationDelay: "5s", animationDuration: "13s" }} />
+        <div className="particle w-1.2 h-1.2 left-[88%]" style={{ animationDelay: "2s", animationDuration: "15s" }} />
+      </div>
+
       {/* paper texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-multiply z-10"
         style={{
           backgroundImage:
             "radial-gradient(circle at 1px 1px, var(--ink) 1.5px, transparent 0)",
@@ -46,7 +55,7 @@ export default function Home() {
         <button
           onClick={handleOpen}
           aria-label="Davetiyeyi aç"
-          className={`relative z-10 flex flex-col items-center gap-5 transition-all duration-500 ease-out cursor-pointer group ${
+          className={`relative z-20 flex flex-col items-center gap-5 transition-all duration-500 ease-out cursor-pointer group ${
             opening ? "opacity-0 scale-90" : "opacity-100"
           }`}
         >
@@ -54,7 +63,7 @@ export default function Home() {
             Davetiyeyi açmak için
           </span>
 
-          <span className="transition-transform duration-300 ease-out group-hover:scale-105 group-active:scale-95 drop-shadow-[0_6px_14px_rgba(154,126,88,0.25)]">
+          <span className="glow-pulse transition-transform duration-300 ease-out group-hover:scale-108 group-active:scale-95">
             <WaxSeal size={132} />
           </span>
 

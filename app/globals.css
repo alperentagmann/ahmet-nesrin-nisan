@@ -74,3 +74,62 @@ main {
     scroll-behavior: auto !important;
   }
 }
+
+/* Custom premium invitation animations & styling aids */
+.glow-pulse {
+  animation: goldGlow 3s infinite ease-in-out;
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(197, 168, 128, 0.35)) drop-shadow(0 2px 4px rgba(28, 26, 23, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(197, 168, 128, 0.75)) drop-shadow(0 4px 8px rgba(28, 26, 23, 0.25));
+  }
+}
+
+/* Floating gold particles layer */
+.particle-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  background: linear-gradient(135deg, #e8dec9 0%, #c5a880 100%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp 12s infinite linear;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  90% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(60px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Luxury Card Hover Lift and Scale */
+.luxury-card {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 65px rgba(90, 75, 55, 0.12), 0 0 20px rgba(197, 168, 128, 0.15);
+}
