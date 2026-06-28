@@ -78,14 +78,19 @@ export default function AdminPage() {
     setFilter("all");
   }
 
-  // Total expected guests (sum of kişi sayısı from allergies field)
+  // Parse guest count from free-text field — handles "2", "2+1", "3 Kişi", "2+1 Kişi", etc.
+  function parseGuestCount(raw: string): number {
+    if (!raw) return 1;
+    // Extract all numbers and sum them (handles "2+1", "2 + 1", "3 kişi")
+    const nums = raw.match(/\d+/g);
+    if (!nums) return 1;
+    return nums.reduce((acc, n) => acc + parseInt(n, 10), 0);
+  }
+
   const totalGuests = useMemo(() => {
     return entries
       .filter((e) => e.attending)
-      .reduce((acc, e) => {
-        const match = e.allergies?.match(/^(\d+)\s*Kişi/i);
-        return acc + (match ? parseInt(match[1], 10) : 1);
-      }, 0);
+      .reduce((acc, e) => acc + parseGuestCount(e.allergies), 0);
   }, [entries]);
 
   const filteredEntries = useMemo(() => {

@@ -53,13 +53,15 @@ export default function Home() {
       {/* Centre content */}
       <div className="relative z-20 flex flex-col items-center justify-center gap-10 px-6 w-full max-w-2xl">
         {/* Top label */}
-        <p
-          className={`font-display text-[11px] sm:text-[13px] tracking-[0.32em] uppercase text-ink-soft transition-all duration-500 ${
+        <div
+          className={`flex justify-center transition-all duration-500 ${
             opening ? "opacity-0 -translate-y-4" : "opacity-100"
           }`}
         >
-          Davetiyeyi açmak için
-        </p>
+          <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)]">
+            Davetiyeyi açmak için
+          </p>
+        </div>
 
         {/* Arrow row */}
         <div
@@ -92,13 +94,15 @@ export default function Home() {
         </div>
 
         {/* Bottom label */}
-        <p
-          className={`font-display text-[11px] sm:text-[13px] tracking-[0.32em] uppercase text-ink-soft transition-all duration-500 ${
+        <div
+          className={`flex justify-center transition-all duration-500 ${
             opening ? "opacity-0 translate-y-4" : "opacity-100"
           }`}
         >
-          Buraya Tıklayınız.
-        </p>
+          <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)]">
+            Buraya Tıklayınız.
+          </p>
+        </div>
       </div>
 
       <style>{`
