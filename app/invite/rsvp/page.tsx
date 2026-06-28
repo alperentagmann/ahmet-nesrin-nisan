@@ -80,10 +80,18 @@ export default function RsvpPage() {
       <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 text-center">
         {/* Floating bubbles */}
         <div className="particle-layer">
-          <div className="particle" style={{ width:8,  height:8,  left:"10%", animationDelay:"0s",   animationDuration:"16s" }} />
-          <div className="particle" style={{ width:5,  height:5,  left:"30%", animationDelay:"4s",   animationDuration:"14s" }} />
-          <div className="particle" style={{ width:11, height:11, left:"55%", animationDelay:"2s",   animationDuration:"18s" }} />
-          <div className="particle" style={{ width:6,  height:6,  left:"80%", animationDelay:"7s",   animationDuration:"15s" }} />
+          <div className="particle" style={{ width:10, height:10, left:"4%",  animationDelay:"0s",   animationDuration:"16s" }} />
+          <div className="particle" style={{ width:24, height:24, left:"10%", animationDelay:"4s",   animationDuration:"21s" }} />
+          <div className="particle" style={{ width:7,  height:7,  left:"18%", animationDelay:"1s",   animationDuration:"14s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"26%", animationDelay:"8s",   animationDuration:"19s" }} />
+          <div className="particle" style={{ width:12, height:12, left:"35%", animationDelay:"2.5s", animationDuration:"17s" }} />
+          <div className="particle" style={{ width:28, height:28, left:"44%", animationDelay:"6s",   animationDuration:"24s" }} />
+          <div className="particle" style={{ width:8,  height:8,  left:"52%", animationDelay:"10s",  animationDuration:"15s" }} />
+          <div className="particle" style={{ width:20, height:20, left:"60%", animationDelay:"1.5s", animationDuration:"20s" }} />
+          <div className="particle" style={{ width:6,  height:6,  left:"68%", animationDelay:"7s",   animationDuration:"13s" }} />
+          <div className="particle" style={{ width:16, height:16, left:"76%", animationDelay:"3s",   animationDuration:"18s" }} />
+          <div className="particle" style={{ width:9,  height:9,  left:"84%", animationDelay:"11s",  animationDuration:"16s" }} />
+          <div className="particle" style={{ width:22, height:22, left:"91%", animationDelay:"5s",   animationDuration:"22s" }} />
         </div>
 
         {/* paper texture */}
@@ -236,11 +244,19 @@ export default function RsvpPage() {
     <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 sm:py-20">
       {/* Floating bubbles */}
       <div className="particle-layer">
-        <div className="particle" style={{ width:6,  height:6,  left:"8%",  animationDelay:"0s",   animationDuration:"15s" }} />
-        <div className="particle" style={{ width:10, height:10, left:"25%", animationDelay:"5s",   animationDuration:"18s" }} />
-        <div className="particle" style={{ width:7,  height:7,  left:"55%", animationDelay:"2s",   animationDuration:"16s" }} />
-        <div className="particle" style={{ width:5,  height:5,  left:"75%", animationDelay:"8s",   animationDuration:"14s" }} />
-        <div className="particle" style={{ width:12, height:12, left:"88%", animationDelay:"3.5s", animationDuration:"19s" }} />
+        <div className="particle" style={{ width:9,  height:9,  left:"3%",  animationDelay:"0s",   animationDuration:"15s" }} />
+        <div className="particle" style={{ width:20, height:20, left:"9%",  animationDelay:"5s",   animationDuration:"20s" }} />
+        <div className="particle" style={{ width:6,  height:6,  left:"16%", animationDelay:"2s",   animationDuration:"13s" }} />
+        <div className="particle" style={{ width:26, height:26, left:"23%", animationDelay:"9s",   animationDuration:"23s" }} />
+        <div className="particle" style={{ width:11, height:11, left:"31%", animationDelay:"3s",   animationDuration:"17s" }} />
+        <div className="particle" style={{ width:7,  height:7,  left:"39%", animationDelay:"11s",  animationDuration:"14s" }} />
+        <div className="particle" style={{ width:24, height:24, left:"47%", animationDelay:"1s",   animationDuration:"22s" }} />
+        <div className="particle" style={{ width:8,  height:8,  left:"55%", animationDelay:"7s",   animationDuration:"16s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"63%", animationDelay:"4s",   animationDuration:"19s" }} />
+        <div className="particle" style={{ width:6,  height:6,  left:"71%", animationDelay:"12s",  animationDuration:"13s" }} />
+        <div className="particle" style={{ width:28, height:28, left:"78%", animationDelay:"2s",   animationDuration:"25s" }} />
+        <div className="particle" style={{ width:10, height:10, left:"85%", animationDelay:"6s",   animationDuration:"16s" }} />
+        <div className="particle" style={{ width:15, height:15, left:"92%", animationDelay:"8s",   animationDuration:"18s" }} />
       </div>
 
       {/* paper texture */}

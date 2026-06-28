@@ -105,24 +105,24 @@ main {
   opacity: 0;
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(255, 255, 255, 0.80) 0%,
-    rgba(240, 228, 208, 0.35) 40%,
-    rgba(197, 168, 128, 0.10) 100%
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 228, 208, 0.55) 40%,
+    rgba(197, 168, 128, 0.20) 100%
   );
-  border: 1.5px solid rgba(197, 168, 128, 0.65);
+  border: 2px solid rgba(197, 168, 128, 0.85);
   box-shadow:
-    inset 0 0 10px rgba(255, 255, 255, 0.55),
-    0 0 8px  rgba(197, 168, 128, 0.20);
+    inset 0 0 12px rgba(255, 255, 255, 0.80),
+    0 0 10px  rgba(197, 168, 128, 0.35);
   animation: bubbleFloat 16s infinite ease-in-out;
 }
 
 @keyframes bubbleFloat {
   0%   { transform: translateY(0)      translateX(0px);   opacity: 0;    }
-  6%   { transform: translateY(-4vh)   translateX(4px);   opacity: 0.75; }
-  25%  { transform: translateY(-26vh)  translateX(14px);  opacity: 0.70; }
-  50%  { transform: translateY(-52vh)  translateX(-12px); opacity: 0.60; }
-  75%  { transform: translateY(-76vh)  translateX(10px);  opacity: 0.45; }
-  94%  { transform: translateY(-100vh) translateX(-6px);  opacity: 0.10; }
+  6%   { transform: translateY(-4vh)   translateX(4px);   opacity: 0.90; }
+  25%  { transform: translateY(-26vh)  translateX(14px);  opacity: 0.85; }
+  50%  { transform: translateY(-52vh)  translateX(-12px); opacity: 0.75; }
+  75%  { transform: translateY(-76vh)  translateX(10px);  opacity: 0.55; }
+  94%  { transform: translateY(-100vh) translateX(-6px);  opacity: 0.15; }
   100% { transform: translateY(-105vh) translateX(-6px);  opacity: 0;    }
 }
 
