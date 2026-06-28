@@ -332,9 +332,23 @@ export default function RsvpPage() {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)] btn-glow-pulse"
+            className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)] btn-glow-pulse flex items-center justify-center gap-2"
           >
-            {status === "submitting" ? "Gönderiliyor…" : "Onayla"}
+            {status === "submitting" ? (
+              "Gönderiliyor…"
+            ) : choice === "yes" ? (
+              <>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Onayla ve Takvime Ekle
+              </>
+            ) : (
+              "Onayla"
+            )}
           </button>
 
           <Link
