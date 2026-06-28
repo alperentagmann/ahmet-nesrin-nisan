@@ -68,13 +68,14 @@ export default function InvitePage() {
 
   return (
     <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 sm:py-20">
-      {/* Floating particles */}
+      {/* Floating bubbles */}
       <div className="particle-layer">
-        <div className="particle w-1.5 h-1.5 left-[8%]" style={{ animationDelay: "0.5s", animationDuration: "13s" }} />
-        <div className="particle w-1 h-1 left-[22%]" style={{ animationDelay: "2.5s", animationDuration: "11s" }} />
-        <div className="particle w-2 h-2 left-[52%]" style={{ animationDelay: "1.5s", animationDuration: "15s" }} />
-        <div className="particle w-1.5 h-1.5 left-[72%]" style={{ animationDelay: "4.5s", animationDuration: "12s" }} />
-        <div className="particle w-1.2 h-1.2 left-[90%]" style={{ animationDelay: "1.5s", animationDuration: "14s" }} />
+        <div className="particle" style={{ width:7,  height:7,  left:"5%",  animationDelay:"0s",   animationDuration:"17s" }} />
+        <div className="particle" style={{ width:11, height:11, left:"20%", animationDelay:"3s",   animationDuration:"19s" }} />
+        <div className="particle" style={{ width:5,  height:5,  left:"40%", animationDelay:"6s",   animationDuration:"14s" }} />
+        <div className="particle" style={{ width:9,  height:9,  left:"60%", animationDelay:"1s",   animationDuration:"16s" }} />
+        <div className="particle" style={{ width:6,  height:6,  left:"78%", animationDelay:"8s",   animationDuration:"18s" }} />
+        <div className="particle" style={{ width:13, height:13, left:"90%", animationDelay:"4s",   animationDuration:"20s" }} />
       </div>
 
       {/* paper texture */}

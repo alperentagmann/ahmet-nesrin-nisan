@@ -18,13 +18,15 @@ export default function Home() {
 
   return (
     <main className="relative flex-1 min-h-screen overflow-hidden bg-cream flex items-center justify-center">
-      {/* Floating particles */}
+      {/* Floating bubbles */}
       <div className="particle-layer">
-        <div className="particle w-1.5 h-1.5 left-[12%]" style={{ animationDelay: "0s", animationDuration: "14s" }} />
-        <div className="particle w-1 h-1 left-[28%]" style={{ animationDelay: "3s", animationDuration: "12s" }} />
-        <div className="particle w-2 h-2 left-[48%]" style={{ animationDelay: "1s", animationDuration: "16s" }} />
-        <div className="particle w-1.5 h-1.5 left-[68%]" style={{ animationDelay: "5s", animationDuration: "13s" }} />
-        <div className="particle w-1 h-1 left-[88%]" style={{ animationDelay: "2s", animationDuration: "15s" }} />
+        <div className="particle" style={{ width:8,  height:8,  left:"7%",  animationDelay:"0s",   animationDuration:"16s" }} />
+        <div className="particle" style={{ width:5,  height:5,  left:"19%", animationDelay:"4s",   animationDuration:"13s" }} />
+        <div className="particle" style={{ width:12, height:12, left:"33%", animationDelay:"1.5s", animationDuration:"18s" }} />
+        <div className="particle" style={{ width:6,  height:6,  left:"52%", animationDelay:"7s",   animationDuration:"15s" }} />
+        <div className="particle" style={{ width:10, height:10, left:"67%", animationDelay:"2s",   animationDuration:"17s" }} />
+        <div className="particle" style={{ width:5,  height:5,  left:"80%", animationDelay:"5.5s", animationDuration:"14s" }} />
+        <div className="particle" style={{ width:8,  height:8,  left:"92%", animationDelay:"9s",   animationDuration:"16s" }} />
       </div>
 
       {/* paper texture */}
