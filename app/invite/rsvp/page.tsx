@@ -367,8 +367,8 @@ export default function RsvpPage() {
             </button>
           </div>
 
-          <p className="font-body text-[0.95rem] italic text-ink-soft/90 leading-relaxed max-w-[16rem]">
-            Nişan Tarihine Kadar Katılım Durumunuzu Bildiriniz
+          <p className="font-body text-[0.95rem] italic text-ink-soft/90 leading-relaxed text-center">
+            Nişan Tarihine Kadar Katılım Durumunuzu<br />Lütfen Bildiriniz
           </p>
 
           <div className="w-full flex flex-col gap-5 text-left pt-2">
