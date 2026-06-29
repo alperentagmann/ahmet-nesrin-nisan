@@ -13,6 +13,13 @@
   --line: #e3decb;       /* Fine Line Gold */
   --wax: #c5a880;        /* Gold Wax Seal */
   --wax-deep: #9a7e58;   /* Deep Gold Seal Shadow */
+  --spread: 1;           /* Desktopta balonlar kartın kenarında */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spread: 0.35;      /* Mobilde balonlar ekranın içine (kartın üzerine) toplanır */
+  }
 }
 
 @theme inline {
@@ -94,7 +101,7 @@ main {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 30; /* Mobilde kartın önüne geçmesi için yükseltildi */
 }
 
 /* Soap-bubble style floater */
