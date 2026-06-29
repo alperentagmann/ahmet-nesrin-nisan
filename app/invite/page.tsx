@@ -104,27 +104,28 @@ export default function InvitePage() {
         <div className="light-sweep-container">
           <div className="light-sweep" />
         </div>
-        {/* Twinkling Sparkles (Yanarlı Dönerli Yıldızlar) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-          <svg className="absolute top-[6%] left-[8%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.2s', animationDuration: '3s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
-          <svg className="absolute top-[16%] right-[6%] text-olive/40 animate-twinkle" style={{ animationDelay: '1.5s', animationDuration: '4s' }} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
-          <svg className="absolute bottom-[20%] left-[5%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.8s', animationDuration: '3.5s' }} width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
-          <svg className="absolute bottom-[8%] right-[8%] text-olive/40 animate-twinkle" style={{ animationDelay: '2.2s', animationDuration: '2.8s' }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
-          <svg className="absolute top-[48%] left-[6%] text-olive/40 animate-twinkle" style={{ animationDelay: '1.8s', animationDuration: '3.2s' }} width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
-          <svg className="absolute top-[38%] right-[5%] text-olive/40 animate-twinkle" style={{ animationDelay: '0.5s', animationDuration: '4.2s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" />
-          </svg>
+        {/* Twinkling Sparkles */}
+        <div className="absolute inset-0 pointer-events-none overflow-visible z-10">
+          {/* Corners */}
+          <svg className="absolute top-[4%]  left-[5%]  text-olive/65 animate-twinkle" style={{ animationDelay:'0.2s',  animationDuration:'2.8s' }} width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[4%]  right-[5%] text-olive/65 animate-twinkle" style={{ animationDelay:'1.4s',  animationDuration:'3.5s' }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute bottom-[4%] left-[5%]  text-olive/65 animate-twinkle" style={{ animationDelay:'0.7s',  animationDuration:'3.1s' }} width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute bottom-[4%] right-[5%] text-olive/65 animate-twinkle" style={{ animationDelay:'2.0s',  animationDuration:'2.5s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          {/* Left side */}
+          <svg className="absolute top-[22%] left-[4%]  text-olive/55 animate-twinkle" style={{ animationDelay:'1.1s',  animationDuration:'4.0s' }} width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[42%] left-[3%]  text-olive/60 animate-twinkle" style={{ animationDelay:'0.4s',  animationDuration:'3.3s' }} width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[62%] left-[5%]  text-olive/50 animate-twinkle" style={{ animationDelay:'2.5s',  animationDuration:'2.9s' }} width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[80%] left-[4%]  text-olive/55 animate-twinkle" style={{ animationDelay:'1.8s',  animationDuration:'3.7s' }} width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          {/* Right side */}
+          <svg className="absolute top-[28%] right-[3%] text-olive/60 animate-twinkle" style={{ animationDelay:'0.9s',  animationDuration:'3.8s' }} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[48%] right-[4%] text-olive/55 animate-twinkle" style={{ animationDelay:'3.0s',  animationDuration:'2.7s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[66%] right-[5%] text-olive/65 animate-twinkle" style={{ animationDelay:'1.3s',  animationDuration:'3.4s' }} width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute top-[84%] right-[3%] text-olive/50 animate-twinkle" style={{ animationDelay:'0.6s',  animationDuration:'4.2s' }} width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          {/* Top & bottom centre */}
+          <svg className="absolute top-[1%]  left-[45%] text-olive/55 animate-twinkle" style={{ animationDelay:'2.2s',  animationDuration:'3.0s' }} width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
+          <svg className="absolute bottom-[1%] left-[48%] text-olive/55 animate-twinkle" style={{ animationDelay:'1.6s',  animationDuration:'3.6s' }} width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"/></svg>
         </div>
+
         
         {/* Double Border Frame */}
         <div className="absolute inset-2.5 border border-olive-soft/35 pointer-events-none rounded-[1px] border-glow-breath" />
