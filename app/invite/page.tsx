@@ -229,9 +229,11 @@ export default function InvitePage() {
 
         {/* Invite text */}
         <p className="font-body text-[1.1rem] italic text-ink-soft leading-relaxed max-w-[21rem] z-10">
-          Birlikte gülmeyi, hayal kurmayı ve aynı yolda yürümeyi seçtik. Bu özel günümüzde yanımızda olmanız bizim için en güzel hediye olacak.
+          Birlikte gülmeyi, hayal kurmayı ve aynı yolda yürümeyi seçtik.
+          <br className="mb-2 block" />
+          Bu özel günümüzde yanımızda olmanız bizim için en güzel hediye olacak.
           <br />
-          <span className="mt-3 block not-italic font-display text-[9.5px] tracking-[0.18em] uppercase text-olive-deep font-semibold">
+          <span className="mt-4 block not-italic font-display text-[9.5px] tracking-[0.18em] uppercase text-olive-deep font-semibold">
             Lütfen katılım durumunuzu bildiriniz
           </span>
         </p>
