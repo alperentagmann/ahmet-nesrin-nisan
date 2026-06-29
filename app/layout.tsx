@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import "./globals.css";
+import ParticleLayer from "./components/ParticleLayer";
 
 const cinzel = Cinzel({
   variable: "--font-display",
@@ -36,7 +37,10 @@ export default function RootLayout({
       lang="tr"
       className={`${cinzel.variable} ${cormorant.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ParticleLayer />
+        {children}
+      </body>
     </html>
   );
 }
