@@ -81,47 +81,47 @@ export default function RsvpPage() {
         {/* Floating bubbles — karta daha yakın ve daha hızlı */}
         <div className="particle-layer">
           {/* Sol */}
-          <div className="particle" style={{ width:8,  height:8,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"7s" }} />
-          <div className="particle hidden sm:block" style={{ width:26, height:26, left:"calc(50% - (280px * var(--spread-left)))", bottom:"5%",  animationDelay:"2s",    animationDuration:"10s" }} />
-          <div className="particle" style={{ width:6,  height:6,  left:"calc(50% - (240px * var(--spread-left)))", bottom:"0%",  animationDelay:"0.5s",  animationDuration:"6s" }} />
-          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (310px * var(--spread-left)))", bottom:"3%",  animationDelay:"3.5s",  animationDuration:"9s" }} />
-          <div className="particle" style={{ width:10, height:10, left:"calc(50% - (260px * var(--spread-left)))", bottom:"0%",  animationDelay:"1s",    animationDuration:"8s" }} />
-          <div className="particle hidden sm:block" style={{ width:32, height:32, left:"calc(50% - (340px * var(--spread-left)))", bottom:"6%",  animationDelay:"5s",    animationDuration:"12s" }} />
-          <div className="particle" style={{ width:7,  height:7,  left:"calc(50% - (235px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"7s" }} />
-          <div className="particle hidden sm:block" style={{ width:22, height:22, left:"calc(50% - (290px * var(--spread-left)))", bottom:"4%",  animationDelay:"0.2s",  animationDuration:"10s" }} />
-          <div className="particle" style={{ width:9,  height:9,  left:"calc(50% - (250px * var(--spread-left)))", bottom:"0%",  animationDelay:"4s",    animationDuration:"8s" }} />
-          <div className="particle hidden sm:block" style={{ width:35, height:35, left:"calc(50% - (360px * var(--spread-left)))", bottom:"2%",  animationDelay:"1.5s",  animationDuration:"13s" }} />
-          <div className="particle" style={{ width:5,  height:5,  left:"calc(50% - (245px * var(--spread-left)))", bottom:"0%",  animationDelay:"5.5s",  animationDuration:"6s" }} />
-          <div className="particle hidden sm:block" style={{ width:14, height:14, left:"calc(50% - (300px * var(--spread-left)))", bottom:"7%",  animationDelay:"0.7s",  animationDuration:"9s" }} />
-          <div className="particle" style={{ width:8,  height:8,  left:"calc(50% - (270px * var(--spread-left)))", bottom:"0%",  animationDelay:"3s",    animationDuration:"7s" }} />
-          <div className="particle hidden sm:block" style={{ width:20, height:20, left:"calc(50% - (320px * var(--spread-left)))", bottom:"9%",  animationDelay:"6.5s",  animationDuration:"11s" }} />
-          <div className="particle" style={{ width:6,  height:6,  left:"calc(50% - (225px * var(--spread-left)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"6s" }} />
-          <div className="particle hidden sm:block" style={{ width:28, height:28, left:"calc(50% - (330px * var(--spread-left)))", bottom:"12%", animationDelay:"4.5s",  animationDuration:"12s" }} />
-          <div className="particle" style={{ width:5,  height:5,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.2s",  animationDuration:"6s" }} />
-          <div className="particle hidden sm:block" style={{ width:12, height:12, left:"calc(50% - (295px * var(--spread-left)))", bottom:"5%",  animationDelay:"3.7s",  animationDuration:"8s" }} />
-          <div className="particle" style={{ width:38, height:38, left:"calc(50% - (370px * var(--spread-left)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"14s" }} />
-          <div className="particle hidden sm:block" style={{ width:7,  height:7,  left:"calc(50% - (255px * var(--spread-left)))", bottom:"8%",  animationDelay:"0s",    animationDuration:"7s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"11s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (280px * var(--spread-left)))", bottom:"5%",  animationDelay:"2s",    animationDuration:"14s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (240px * var(--spread-left)))", bottom:"0%",  animationDelay:"0.5s",  animationDuration:"10s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (310px * var(--spread-left)))", bottom:"3%",  animationDelay:"3.5s",  animationDuration:"13s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% - (260px * var(--spread-left)))", bottom:"0%",  animationDelay:"1s",    animationDuration:"12s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (340px * var(--spread-left)))", bottom:"6%",  animationDelay:"5s",    animationDuration:"16s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (235px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"11s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (290px * var(--spread-left)))", bottom:"4%",  animationDelay:"0.2s",  animationDuration:"14s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (250px * var(--spread-left)))", bottom:"0%",  animationDelay:"4s",    animationDuration:"12s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (360px * var(--spread-left)))", bottom:"2%",  animationDelay:"1.5s",  animationDuration:"17s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (245px * var(--spread-left)))", bottom:"0%",  animationDelay:"5.5s",  animationDuration:"10s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (300px * var(--spread-left)))", bottom:"7%",  animationDelay:"0.7s",  animationDuration:"13s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (270px * var(--spread-left)))", bottom:"0%",  animationDelay:"3s",    animationDuration:"11s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (320px * var(--spread-left)))", bottom:"9%",  animationDelay:"6.5s",  animationDuration:"15s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (225px * var(--spread-left)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"10s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (330px * var(--spread-left)))", bottom:"12%", animationDelay:"4.5s",  animationDuration:"16s" }} />
+          <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.2s",  animationDuration:"10s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (295px * var(--spread-left)))", bottom:"5%",  animationDelay:"3.7s",  animationDuration:"12s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% - (370px * var(--spread-left)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"18s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% - (255px * var(--spread-left)))", bottom:"8%",  animationDelay:"0s",    animationDuration:"11s" }} />
           {/* Sağ */}
-          <div className="particle" style={{ width:28, height:28, left:"calc(50% + (280px * var(--spread-right)))", bottom:"3%",  animationDelay:"1s",    animationDuration:"11s" }} />
-          <div className="particle hidden sm:block" style={{ width:6,  height:6,  left:"calc(50% + (240px * var(--spread-right)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"6s" }} />
-          <div className="particle" style={{ width:20, height:20, left:"calc(50% + (310px * var(--spread-right)))", bottom:"5%",  animationDelay:"4.5s",  animationDuration:"9s" }} />
-          <div className="particle hidden sm:block" style={{ width:8,  height:8,  left:"calc(50% + (260px * var(--spread-right)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"7s" }} />
-          <div className="particle" style={{ width:33, height:33, left:"calc(50% + (340px * var(--spread-right)))", bottom:"2%",  animationDelay:"1.7s",  animationDuration:"13s" }} />
-          <div className="particle hidden sm:block" style={{ width:5,  height:5,  left:"calc(50% + (230px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.5s",  animationDuration:"6s" }} />
-          <div className="particle" style={{ width:16, height:16, left:"calc(50% + (290px * var(--spread-right)))", bottom:"6%",  animationDelay:"0.5s",  animationDuration:"9s" }} />
-          <div className="particle hidden sm:block" style={{ width:9,  height:9,  left:"calc(50% + (250px * var(--spread-right)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"8s" }} />
-          <div className="particle" style={{ width:24, height:24, left:"calc(50% + (320px * var(--spread-right)))", bottom:"4%",  animationDelay:"2.2s",  animationDuration:"10s" }} />
-          <div className="particle hidden sm:block" style={{ width:7,  height:7,  left:"calc(50% + (235px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.2s",  animationDuration:"7s" }} />
-          <div className="particle" style={{ width:30, height:30, left:"calc(50% + (360px * var(--spread-right)))", bottom:"1%",  animationDelay:"3s",    animationDuration:"12s" }} />
-          <div className="particle hidden sm:block" style={{ width:10, height:10, left:"calc(50% + (270px * var(--spread-right)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"8s" }} />
-          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (300px * var(--spread-right)))", bottom:"8%",  animationDelay:"5s",    animationDuration:"10s" }} />
-          <div className="particle hidden sm:block" style={{ width:6,  height:6,  left:"calc(50% + (225px * var(--spread-right)))", bottom:"0%",  animationDelay:"7s",    animationDuration:"6s" }} />
-          <div className="particle" style={{ width:38, height:38, left:"calc(50% + (370px * var(--spread-right)))", bottom:"11%", animationDelay:"0.7s",  animationDuration:"14s" }} />
-          <div className="particle hidden sm:block" style={{ width:5,  height:5,  left:"calc(50% + (245px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.2s",  animationDuration:"6s" }} />
-          <div className="particle" style={{ width:22, height:22, left:"calc(50% + (330px * var(--spread-right)))", bottom:"4%",  animationDelay:"1.5s",  animationDuration:"10s" }} />
-          <div className="particle hidden sm:block" style={{ width:8,  height:8,  left:"calc(50% + (220px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.7s",  animationDuration:"7s" }} />
-          <div className="particle" style={{ width:14, height:14, left:"calc(50% + (295px * var(--spread-right)))", bottom:"7%",  animationDelay:"2.7s",  animationDuration:"9s" }} />
-          <div className="particle hidden sm:block" style={{ width:26, height:26, left:"calc(50% + (350px * var(--spread-right)))", bottom:"0%",  animationDelay:"5.7s",  animationDuration:"11s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (280px * var(--spread-right)))", bottom:"3%",  animationDelay:"1s",    animationDuration:"15s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (240px * var(--spread-right)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"10s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (310px * var(--spread-right)))", bottom:"5%",  animationDelay:"4.5s",  animationDuration:"13s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (260px * var(--spread-right)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"11s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (340px * var(--spread-right)))", bottom:"2%",  animationDelay:"1.7s",  animationDuration:"17s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (230px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.5s",  animationDuration:"10s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (290px * var(--spread-right)))", bottom:"6%",  animationDelay:"0.5s",  animationDuration:"13s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (250px * var(--spread-right)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"12s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (320px * var(--spread-right)))", bottom:"4%",  animationDelay:"2.2s",  animationDuration:"14s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (235px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.2s",  animationDuration:"11s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (360px * var(--spread-right)))", bottom:"1%",  animationDelay:"3s",    animationDuration:"16s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% + (270px * var(--spread-right)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"12s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (300px * var(--spread-right)))", bottom:"8%",  animationDelay:"5s",    animationDuration:"14s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (225px * var(--spread-right)))", bottom:"0%",  animationDelay:"7s",    animationDuration:"10s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (370px * var(--spread-right)))", bottom:"11%", animationDelay:"0.7s",  animationDuration:"18s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (245px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.2s",  animationDuration:"10s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (330px * var(--spread-right)))", bottom:"4%",  animationDelay:"1.5s",  animationDuration:"14s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (220px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.7s",  animationDuration:"11s" }} />
+          <div className="particle" style={{ width:18, height:18, left:"calc(50% + (295px * var(--spread-right)))", bottom:"7%",  animationDelay:"2.7s",  animationDuration:"13s" }} />
+          <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% + (350px * var(--spread-right)))", bottom:"0%",  animationDelay:"5.7s",  animationDuration:"15s" }} />
         </div>
 
         {/* paper texture */}
@@ -275,47 +275,47 @@ export default function RsvpPage() {
       {/* Floating bubbles */}
       <div className="particle-layer">
         {/* Sol */}
-        <div className="particle" style={{ width:8,  height:8,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"7s" }} />
-        <div className="particle hidden sm:block" style={{ width:26, height:26, left:"calc(50% - (280px * var(--spread-left)))", bottom:"5%",  animationDelay:"2s",    animationDuration:"10s" }} />
-        <div className="particle" style={{ width:6,  height:6,  left:"calc(50% - (240px * var(--spread-left)))", bottom:"0%",  animationDelay:"0.5s",  animationDuration:"6s" }} />
-        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (310px * var(--spread-left)))", bottom:"3%",  animationDelay:"3.5s",  animationDuration:"9s" }} />
-        <div className="particle" style={{ width:10, height:10, left:"calc(50% - (260px * var(--spread-left)))", bottom:"0%",  animationDelay:"1s",    animationDuration:"8s" }} />
-        <div className="particle hidden sm:block" style={{ width:32, height:32, left:"calc(50% - (340px * var(--spread-left)))", bottom:"6%",  animationDelay:"5s",    animationDuration:"12s" }} />
-        <div className="particle" style={{ width:7,  height:7,  left:"calc(50% - (235px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"7s" }} />
-        <div className="particle hidden sm:block" style={{ width:22, height:22, left:"calc(50% - (290px * var(--spread-left)))", bottom:"4%",  animationDelay:"0.2s",  animationDuration:"10s" }} />
-        <div className="particle" style={{ width:9,  height:9,  left:"calc(50% - (250px * var(--spread-left)))", bottom:"0%",  animationDelay:"4s",    animationDuration:"8s" }} />
-        <div className="particle hidden sm:block" style={{ width:35, height:35, left:"calc(50% - (360px * var(--spread-left)))", bottom:"2%",  animationDelay:"1.5s",  animationDuration:"13s" }} />
-        <div className="particle" style={{ width:5,  height:5,  left:"calc(50% - (245px * var(--spread-left)))", bottom:"0%",  animationDelay:"5.5s",  animationDuration:"6s" }} />
-        <div className="particle hidden sm:block" style={{ width:14, height:14, left:"calc(50% - (300px * var(--spread-left)))", bottom:"7%",  animationDelay:"0.7s",  animationDuration:"9s" }} />
-        <div className="particle" style={{ width:8,  height:8,  left:"calc(50% - (270px * var(--spread-left)))", bottom:"0%",  animationDelay:"3s",    animationDuration:"7s" }} />
-        <div className="particle hidden sm:block" style={{ width:20, height:20, left:"calc(50% - (320px * var(--spread-left)))", bottom:"9%",  animationDelay:"6.5s",  animationDuration:"11s" }} />
-        <div className="particle" style={{ width:6,  height:6,  left:"calc(50% - (225px * var(--spread-left)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"6s" }} />
-        <div className="particle hidden sm:block" style={{ width:28, height:28, left:"calc(50% - (330px * var(--spread-left)))", bottom:"12%", animationDelay:"4.5s",  animationDuration:"12s" }} />
-        <div className="particle" style={{ width:5,  height:5,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.2s",  animationDuration:"6s" }} />
-        <div className="particle hidden sm:block" style={{ width:12, height:12, left:"calc(50% - (295px * var(--spread-left)))", bottom:"5%",  animationDelay:"3.7s",  animationDuration:"8s" }} />
-        <div className="particle" style={{ width:38, height:38, left:"calc(50% - (370px * var(--spread-left)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"14s" }} />
-        <div className="particle hidden sm:block" style={{ width:7,  height:7,  left:"calc(50% - (255px * var(--spread-left)))", bottom:"8%",  animationDelay:"0s",    animationDuration:"7s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"11s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (280px * var(--spread-left)))", bottom:"5%",  animationDelay:"2s",    animationDuration:"14s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (240px * var(--spread-left)))", bottom:"0%",  animationDelay:"0.5s",  animationDuration:"10s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (310px * var(--spread-left)))", bottom:"3%",  animationDelay:"3.5s",  animationDuration:"13s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% - (260px * var(--spread-left)))", bottom:"0%",  animationDelay:"1s",    animationDuration:"12s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (340px * var(--spread-left)))", bottom:"6%",  animationDelay:"5s",    animationDuration:"16s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (235px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"11s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (290px * var(--spread-left)))", bottom:"4%",  animationDelay:"0.2s",  animationDuration:"14s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (250px * var(--spread-left)))", bottom:"0%",  animationDelay:"4s",    animationDuration:"12s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (360px * var(--spread-left)))", bottom:"2%",  animationDelay:"1.5s",  animationDuration:"17s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (245px * var(--spread-left)))", bottom:"0%",  animationDelay:"5.5s",  animationDuration:"10s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (300px * var(--spread-left)))", bottom:"7%",  animationDelay:"0.7s",  animationDuration:"13s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (270px * var(--spread-left)))", bottom:"0%",  animationDelay:"3s",    animationDuration:"11s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (320px * var(--spread-left)))", bottom:"9%",  animationDelay:"6.5s",  animationDuration:"15s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (225px * var(--spread-left)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"10s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (330px * var(--spread-left)))", bottom:"12%", animationDelay:"4.5s",  animationDuration:"16s" }} />
+        <div className="particle" style={{ width:18, height:18,  left:"calc(50% - (230px * var(--spread-left)))", bottom:"0%",  animationDelay:"2.2s",  animationDuration:"10s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% - (295px * var(--spread-left)))", bottom:"5%",  animationDelay:"3.7s",  animationDuration:"12s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% - (370px * var(--spread-left)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"18s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% - (255px * var(--spread-left)))", bottom:"8%",  animationDelay:"0s",    animationDuration:"11s" }} />
         {/* Sağ */}
-        <div className="particle" style={{ width:28, height:28, left:"calc(50% + (280px * var(--spread-right)))", bottom:"3%",  animationDelay:"1s",    animationDuration:"11s" }} />
-        <div className="particle hidden sm:block" style={{ width:6,  height:6,  left:"calc(50% + (240px * var(--spread-right)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"6s" }} />
-        <div className="particle" style={{ width:20, height:20, left:"calc(50% + (310px * var(--spread-right)))", bottom:"5%",  animationDelay:"4.5s",  animationDuration:"9s" }} />
-        <div className="particle hidden sm:block" style={{ width:8,  height:8,  left:"calc(50% + (260px * var(--spread-right)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"7s" }} />
-        <div className="particle" style={{ width:33, height:33, left:"calc(50% + (340px * var(--spread-right)))", bottom:"2%",  animationDelay:"1.7s",  animationDuration:"13s" }} />
-        <div className="particle hidden sm:block" style={{ width:5,  height:5,  left:"calc(50% + (230px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.5s",  animationDuration:"6s" }} />
-        <div className="particle" style={{ width:16, height:16, left:"calc(50% + (290px * var(--spread-right)))", bottom:"6%",  animationDelay:"0.5s",  animationDuration:"9s" }} />
-        <div className="particle hidden sm:block" style={{ width:9,  height:9,  left:"calc(50% + (250px * var(--spread-right)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"8s" }} />
-        <div className="particle" style={{ width:24, height:24, left:"calc(50% + (320px * var(--spread-right)))", bottom:"4%",  animationDelay:"2.2s",  animationDuration:"10s" }} />
-        <div className="particle hidden sm:block" style={{ width:7,  height:7,  left:"calc(50% + (235px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.2s",  animationDuration:"7s" }} />
-        <div className="particle" style={{ width:30, height:30, left:"calc(50% + (360px * var(--spread-right)))", bottom:"1%",  animationDelay:"3s",    animationDuration:"12s" }} />
-        <div className="particle hidden sm:block" style={{ width:10, height:10, left:"calc(50% + (270px * var(--spread-right)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"8s" }} />
-        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (300px * var(--spread-right)))", bottom:"8%",  animationDelay:"5s",    animationDuration:"10s" }} />
-        <div className="particle hidden sm:block" style={{ width:6,  height:6,  left:"calc(50% + (225px * var(--spread-right)))", bottom:"0%",  animationDelay:"7s",    animationDuration:"6s" }} />
-        <div className="particle" style={{ width:38, height:38, left:"calc(50% + (370px * var(--spread-right)))", bottom:"11%", animationDelay:"0.7s",  animationDuration:"14s" }} />
-        <div className="particle hidden sm:block" style={{ width:5,  height:5,  left:"calc(50% + (245px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.2s",  animationDuration:"6s" }} />
-        <div className="particle" style={{ width:22, height:22, left:"calc(50% + (330px * var(--spread-right)))", bottom:"4%",  animationDelay:"1.5s",  animationDuration:"10s" }} />
-        <div className="particle hidden sm:block" style={{ width:8,  height:8,  left:"calc(50% + (220px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.7s",  animationDuration:"7s" }} />
-        <div className="particle" style={{ width:14, height:14, left:"calc(50% + (295px * var(--spread-right)))", bottom:"7%",  animationDelay:"2.7s",  animationDuration:"9s" }} />
-        <div className="particle hidden sm:block" style={{ width:26, height:26, left:"calc(50% + (350px * var(--spread-right)))", bottom:"0%",  animationDelay:"5.7s",  animationDuration:"11s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (280px * var(--spread-right)))", bottom:"3%",  animationDelay:"1s",    animationDuration:"15s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (240px * var(--spread-right)))", bottom:"0%",  animationDelay:"2.5s",  animationDuration:"10s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (310px * var(--spread-right)))", bottom:"5%",  animationDelay:"4.5s",  animationDuration:"13s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (260px * var(--spread-right)))", bottom:"0%",  animationDelay:"0s",    animationDuration:"11s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (340px * var(--spread-right)))", bottom:"2%",  animationDelay:"1.7s",  animationDuration:"17s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (230px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.5s",  animationDuration:"10s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (290px * var(--spread-right)))", bottom:"6%",  animationDelay:"0.5s",  animationDuration:"13s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (250px * var(--spread-right)))", bottom:"0%",  animationDelay:"6s",    animationDuration:"12s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (320px * var(--spread-right)))", bottom:"4%",  animationDelay:"2.2s",  animationDuration:"14s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (235px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.2s",  animationDuration:"11s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (360px * var(--spread-right)))", bottom:"1%",  animationDelay:"3s",    animationDuration:"16s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% + (270px * var(--spread-right)))", bottom:"0%",  animationDelay:"1.2s",  animationDuration:"12s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (300px * var(--spread-right)))", bottom:"8%",  animationDelay:"5s",    animationDuration:"14s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (225px * var(--spread-right)))", bottom:"0%",  animationDelay:"7s",    animationDuration:"10s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (370px * var(--spread-right)))", bottom:"11%", animationDelay:"0.7s",  animationDuration:"18s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (245px * var(--spread-right)))", bottom:"0%",  animationDelay:"3.2s",  animationDuration:"10s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (330px * var(--spread-right)))", bottom:"4%",  animationDelay:"1.5s",  animationDuration:"14s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18,  left:"calc(50% + (220px * var(--spread-right)))", bottom:"0%",  animationDelay:"4.7s",  animationDuration:"11s" }} />
+        <div className="particle" style={{ width:18, height:18, left:"calc(50% + (295px * var(--spread-right)))", bottom:"7%",  animationDelay:"2.7s",  animationDuration:"13s" }} />
+        <div className="particle hidden sm:block" style={{ width:18, height:18, left:"calc(50% + (350px * var(--spread-right)))", bottom:"0%",  animationDelay:"5.7s",  animationDuration:"15s" }} />
       </div>
 
       {/* paper texture */}
