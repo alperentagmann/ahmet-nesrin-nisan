@@ -90,55 +90,66 @@ export default function Home() {
       {/* Centre content */}
       <div className="relative z-20 flex flex-col items-center justify-center gap-10 px-6 w-full max-w-2xl">
         {/* Top label */}
+        {/* Interactive Clickable Area encompassing labels and seal */}
         <div
-          className={`flex justify-center transition-all duration-500 ${
-            opening ? "opacity-0 -translate-y-4" : "opacity-100"
-          }`}
+          onClick={handleOpen}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleOpen();
+            }
+          }}
+          aria-label="Davetiyeyi aç"
+          className="group flex flex-col items-center justify-center gap-6 cursor-pointer"
         >
-          <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)]">
-            Davetiyeyi açmak için
-          </p>
-        </div>
-
-        {/* Arrow row */}
-        <div
-          className={`flex items-center justify-center gap-6 sm:gap-10 transition-all duration-500 ${
-            opening ? "opacity-0 scale-90" : "opacity-100"
-          }`}
-        >
-          {/* Left arrows */}
-          <div className="flex items-center gap-1.5" aria-hidden>
-            <Arrow delay="0.6s" />
-            <Arrow delay="0.3s" />
-            <Arrow delay="0s" />
-          </div>
-
-          {/* Wax seal button */}
-          <button
-            onClick={handleOpen}
-            aria-label="Davetiyeyi aç"
-            className="glow-pulse transition-transform duration-300 ease-out hover:scale-108 active:scale-95 cursor-pointer"
+          {/* Top label */}
+          <div
+            className={`flex justify-center transition-all duration-500 ${
+              opening ? "opacity-0 -translate-y-4" : "opacity-100"
+            }`}
           >
-            <WaxSeal size={148} />
-          </button>
-
-          {/* Right arrows (mirrored) */}
-          <div className="flex items-center gap-1.5 rotate-180" aria-hidden>
-            <Arrow delay="0.6s" />
-            <Arrow delay="0.3s" />
-            <Arrow delay="0s" />
+            <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)] group-hover:bg-cream transition-colors duration-300">
+              Davetiyeyi açmak için
+            </p>
           </div>
-        </div>
 
-        {/* Bottom label */}
-        <div
-          className={`flex justify-center transition-all duration-500 ${
-            opening ? "opacity-0 translate-y-4" : "opacity-100"
-          }`}
-        >
-          <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)]">
-            Buraya Tıklayınız.
-          </p>
+          {/* Arrow row and Seal */}
+          <div
+            className={`flex items-center justify-center gap-6 sm:gap-10 transition-all duration-500 ${
+              opening ? "opacity-0 scale-90" : "opacity-100"
+            }`}
+          >
+            {/* Left arrows */}
+            <div className="flex items-center gap-1.5" aria-hidden>
+              <Arrow delay="0.6s" />
+              <Arrow delay="0.3s" />
+              <Arrow delay="0s" />
+            </div>
+
+            {/* Wax seal */}
+            <div className="glow-pulse transition-transform duration-300 ease-out group-hover:scale-108 group-active:scale-95">
+              <WaxSeal size={148} />
+            </div>
+
+            {/* Right arrows (mirrored) */}
+            <div className="flex items-center gap-1.5 rotate-180" aria-hidden>
+              <Arrow delay="0.6s" />
+              <Arrow delay="0.3s" />
+              <Arrow delay="0s" />
+            </div>
+          </div>
+
+          {/* Bottom label */}
+          <div
+            className={`flex justify-center transition-all duration-500 ${
+              opening ? "opacity-0 translate-y-4" : "opacity-100"
+            }`}
+          >
+            <p className="font-display text-[11px] sm:text-[12px] tracking-[0.35em] uppercase text-ink bg-cream/80 backdrop-blur-sm px-5 py-2 rounded-full border border-olive-soft/25 shadow-[0_2px_12px_rgba(28,26,23,0.06)] group-hover:bg-cream transition-colors duration-300">
+              Buraya Tıklayınız.
+            </p>
+          </div>
         </div>
       </div>
 
