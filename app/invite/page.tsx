@@ -289,7 +289,7 @@ export default function InvitePage() {
           <CircleAction
             icon={<CameraIcon />}
             label="fotoğraf"
-            href="https://drive.google.com/drive/folders/1r0JYE1jKIGESAy6zl0yJvDw1cgmSe3VO?usp=sharing"
+            href="https://dashboard.fotify.app/live/9cb13050-cdff-4223-a460-53a4a34f7099"
             external={true}
           />
           <CircleAction icon={<CheckIcon />} label="lcv" href="/invite/rsvp" />

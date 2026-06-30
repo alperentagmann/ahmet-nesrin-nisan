@@ -19,7 +19,8 @@ export default function RsvpPage() {
   const [noteSending, setNoteSending] = useState(false);
   const [isGeneratingAI, setIsGeneratingAI] = useState(false);
 
-  const aiMessages = [
+  const aiTemplates = [
+    "Bir ömür boyu sağlık, huzur ve mutluluk diliyorum...",
     "Birbirinize olan sevginiz hep ilk günkü gibi taze kalsın. Mutluluğunuz daim olsun! ✨",
     "Bu güzel yola çıkarken attığınız her adımda kalpleriniz hep bir atsın. Harika bir ömür dilerim! 🤍",
     "Gözlerinizdeki mutluluk ışığı hiç sönmesin, en güzel masallar sizinle olsun. Tebrikler! 🥂",
@@ -31,17 +32,20 @@ export default function RsvpPage() {
     if (isGeneratingAI) return;
     setIsGeneratingAI(true);
     setNoteText("");
-    const randomMsg = aiMessages[Math.floor(Math.random() * aiMessages.length)];
+    
+    const randomTemplate = aiTemplates[Math.floor(Math.random() * aiTemplates.length)];
+    const senderName = name.trim() ? `\n\nSevgiler,\n${name.trim()}` : "";
+    const fullMsg = `Sevgili Ahmet ve Nesrin,\n\n${randomTemplate}${senderName}`;
     
     let i = 0;
     const interval = setInterval(() => {
-      setNoteText(randomMsg.substring(0, i + 1));
+      setNoteText(fullMsg.substring(0, i + 1));
       i++;
-      if (i >= randomMsg.length) {
+      if (i >= fullMsg.length) {
         clearInterval(interval);
         setIsGeneratingAI(false);
       }
-    }, 40);
+    }, 30);
   };
 
   async function handleSubmit(e: React.FormEvent) {
