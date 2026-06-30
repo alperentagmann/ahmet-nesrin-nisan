@@ -224,11 +224,9 @@ export default function InvitePage() {
           </div>
         </div>
 
-        {/* Countdown */}
-        <Countdown targetDate={inviteConfig.eventDate} />
-
-        {/* Weather Widget */}
-        <div className="w-full z-10 pt-1 pb-1">
+        {/* Countdown and Weather Container */}
+        <div className="flex flex-row items-stretch justify-center gap-2 z-10 w-full pt-1 pb-1">
+          <Countdown targetDate={inviteConfig.eventDate} />
           <WeatherWidget />
         </div>
 
@@ -251,7 +249,7 @@ export default function InvitePage() {
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
           />
-          <CircleAction icon={<CheckIcon />} label="L.C.V. / Katılım" href="/invite/rsvp" />
+          <CircleAction icon={<CheckIcon />} label="lcv" href="/invite/rsvp" />
         </div>
       </div>
 
