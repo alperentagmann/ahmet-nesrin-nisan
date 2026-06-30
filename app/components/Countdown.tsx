@@ -38,32 +38,32 @@ export default function Countdown({ targetDate }: CountdownProps) {
   if (!isMounted) return <div className="h-[90px] w-full" />; // Prevents hydration mismatch and layout shift
 
   return (
-    <div className="flex flex-col items-center gap-3.5 w-full py-4 relative z-10 animate-[fadeIn_1s_ease-out]">
-      <div className="flex items-center gap-3 w-full justify-center">
-        <div className="w-10 h-px bg-olive-soft/35" />
-        <span className="font-display text-[9px] tracking-[0.25em] uppercase text-ink-soft/45">Nişana Kalan Zaman</span>
-        <div className="w-10 h-px bg-olive-soft/35" />
+    <div className="flex flex-col items-center gap-2 w-full max-w-[260px] py-3 px-4 relative z-10 animate-[fadeIn_1s_ease-out] border border-olive-soft/35 rounded-[3px] bg-paper/50 backdrop-blur-[2px] shadow-[0_4px_12px_rgba(28,26,23,0.02)]">
+      <div className="flex items-center gap-2 w-full justify-center">
+        <div className="w-8 h-px bg-olive-soft/25" />
+        <span className="font-display text-[8.5px] tracking-[0.25em] uppercase text-ink-soft/50">Nişana Kalan Zaman</span>
+        <div className="w-8 h-px bg-olive-soft/25" />
       </div>
       
-      <div className="flex items-center gap-4 sm:gap-6 text-olive-deep">
-        <div className="flex flex-col items-center min-w-[50px]">
-          <span className="font-display text-2xl sm:text-3xl leading-none">{timeLeft.days}</span>
-          <span className="font-display text-[8px] tracking-[0.2em] uppercase text-ink-soft/60 mt-2.5">Gün</span>
+      <div className="flex items-center gap-3 sm:gap-4 text-olive-deep pt-1">
+        <div className="flex flex-col items-center min-w-[42px]">
+          <span className="font-display text-xl sm:text-2xl leading-none">{timeLeft.days}</span>
+          <span className="font-display text-[7.5px] tracking-[0.2em] uppercase text-ink-soft/60 mt-1.5">Gün</span>
         </div>
-        <span className="text-lg sm:text-xl text-olive-soft/50 font-light mb-5">:</span>
-        <div className="flex flex-col items-center min-w-[50px]">
-          <span className="font-display text-2xl sm:text-3xl leading-none">{timeLeft.hours}</span>
-          <span className="font-display text-[8px] tracking-[0.2em] uppercase text-ink-soft/60 mt-2.5">Saat</span>
+        <span className="text-sm sm:text-base text-olive-soft/50 font-light mb-3">:</span>
+        <div className="flex flex-col items-center min-w-[42px]">
+          <span className="font-display text-xl sm:text-2xl leading-none">{timeLeft.hours}</span>
+          <span className="font-display text-[7.5px] tracking-[0.2em] uppercase text-ink-soft/60 mt-1.5">Saat</span>
         </div>
-        <span className="text-lg sm:text-xl text-olive-soft/50 font-light mb-5">:</span>
-        <div className="flex flex-col items-center min-w-[50px]">
-          <span className="font-display text-2xl sm:text-3xl leading-none">{timeLeft.minutes}</span>
-          <span className="font-display text-[8px] tracking-[0.2em] uppercase text-ink-soft/60 mt-2.5">Dakika</span>
+        <span className="text-sm sm:text-base text-olive-soft/50 font-light mb-3">:</span>
+        <div className="flex flex-col items-center min-w-[42px]">
+          <span className="font-display text-xl sm:text-2xl leading-none">{timeLeft.minutes}</span>
+          <span className="font-display text-[7.5px] tracking-[0.2em] uppercase text-ink-soft/60 mt-1.5">Dakika</span>
         </div>
-        <span className="text-lg sm:text-xl text-olive-soft/50 font-light mb-5">:</span>
-        <div className="flex flex-col items-center min-w-[50px]">
-          <span className="font-display text-2xl sm:text-3xl leading-none">{timeLeft.seconds}</span>
-          <span className="font-display text-[8px] tracking-[0.2em] uppercase text-ink-soft/60 mt-2.5">Saniye</span>
+        <span className="text-sm sm:text-base text-olive-soft/50 font-light mb-3">:</span>
+        <div className="flex flex-col items-center min-w-[42px]">
+          <span className="font-display text-xl sm:text-2xl leading-none">{timeLeft.seconds}</span>
+          <span className="font-display text-[7.5px] tracking-[0.2em] uppercase text-ink-soft/60 mt-1.5">Saniye</span>
         </div>
       </div>
     </div>

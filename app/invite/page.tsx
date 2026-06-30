@@ -213,8 +213,11 @@ export default function InvitePage() {
           </div>
         </div>
 
+        {/* Countdown */}
+        <Countdown targetDate={inviteConfig.eventDate} />
+
         {/* Venue */}
-        <div className="flex flex-col gap-1 z-10">
+        <div className="flex flex-col gap-1 z-10 pt-2">
           <p className="font-display text-[1rem] tracking-[0.12em] uppercase text-ink">{venueName}</p>
           <p className="font-body text-[0.94rem] text-ink-soft leading-relaxed max-w-[16rem]">{venueAddress}</p>
         </div>
@@ -224,9 +227,6 @@ export default function InvitePage() {
             {receptionNote}
           </p>
         )}
-
-        {/* Countdown */}
-        <Countdown targetDate={inviteConfig.eventDate} />
 
         {/* Action buttons */}
         <div className="flex items-center justify-center gap-10 pt-2 z-10">
