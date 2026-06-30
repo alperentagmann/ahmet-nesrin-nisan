@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { inviteConfig } from "@/lib/invite-config";
+import Countdown from "@/app/components/Countdown";
 
 function MapPinIcon() {
   return (
@@ -223,6 +224,9 @@ export default function InvitePage() {
             {receptionNote}
           </p>
         )}
+
+        {/* Countdown */}
+        <Countdown targetDate={inviteConfig.eventDate} />
 
         {/* Action buttons */}
         <div className="flex items-center justify-center gap-10 pt-2 z-10">
