@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { inviteConfig } from "@/lib/invite-config";
 import Countdown from "@/app/components/Countdown";
@@ -36,14 +37,16 @@ function CircleAction({
   label,
   href,
   external,
+  onClick,
 }: {
   icon: React.ReactNode;
   label: string;
-  href: string;
+  href?: string;
   external?: boolean;
+  onClick?: () => void;
 }) {
   const content = (
-    <div className="flex flex-col items-center gap-2.5 group cursor-pointer">
+    <div className="flex flex-col items-center gap-2.5 group cursor-pointer" onClick={onClick}>
       <span className="w-14 h-14 rounded-full text-white flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-95 btn-glow-pulse">
         {icon}
       </span>
@@ -53,17 +56,24 @@ function CircleAction({
     </div>
   );
 
-  if (external) {
+  if (onClick) return content;
+
+  if (external && href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     );
   }
-  return <Link href={href}>{content}</Link>;
+  if (href) {
+    return <Link href={href}>{content}</Link>;
+  }
+  return content;
 }
 
 export default function InvitePage() {
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  
   const { coupleNames, parents, dateLabel, timeLabel, venueName, venueAddress, mapsUrl, receptionNote } =
     inviteConfig;
 
@@ -233,8 +243,7 @@ export default function InvitePage() {
           <CircleAction
             icon={<MapPinIcon />}
             label="konum"
-            href={mapsUrl}
-            external
+            onClick={() => setIsMapModalOpen(true)}
           />
           <CircleAction icon={<CheckIcon />} label="L.C.V. / Katılım" href="/invite/rsvp" />
         </div>
@@ -246,6 +255,39 @@ export default function InvitePage() {
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
+
+      {/* Map Selection Modal */}
+      {isMapModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-ink/40 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+          <div className="relative w-full max-w-[280px] bg-paper border border-olive-soft/40 p-6 py-8 rounded-[4px] shadow-2xl flex flex-col items-center gap-4 text-center">
+            
+            <button 
+              onClick={() => setIsMapModalOpen(false)}
+              className="absolute top-3 right-3 text-ink-soft hover:text-ink transition-colors cursor-pointer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <h3 className="font-display text-[15px] tracking-[0.1em] text-ink uppercase mb-2">Uygulama Seçin</h3>
+            
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+              Google Haritalar
+              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            
+            <a href={`https://yandex.com.tr/harita/?text=${encodeURIComponent(venueName + " " + venueAddress)}`} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+              Yandex Navigasyon
+              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            
+            <a href={`http://maps.apple.com/?q=${encodeURIComponent(venueName + " " + venueAddress)}`} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+              Apple Haritalar
+              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+          </div>
+        </div>
+      )}
     </main>
   );
 }
