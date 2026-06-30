@@ -11,6 +11,12 @@ export default function Home() {
   function handleOpen() {
     if (opening) return;
     setOpening(true);
+    
+    // Müziği başlat
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event('start-music'));
+    }
+
     setTimeout(() => {
       router.push("/invite");
     }, 650);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import ParticleLayer from "./components/ParticleLayer";
+import MusicPlayer from "./components/MusicPlayer";
 
 const cinzel = Cinzel({
   variable: "--font-display",
@@ -39,6 +40,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ParticleLayer />
+        <MusicPlayer />
         {children}
       </body>
     </html>
