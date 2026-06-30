@@ -93,19 +93,8 @@ export default function RsvpPage() {
       `https://calendar.google.com/calendar/render?action=TEMPLATE` +
       `&text=${gcTitle}&dates=${gcStart}/${gcEnd}&location=${gcLocation}`;
 
-    // Apple / iCal data URI
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "BEGIN:VEVENT",
-      "DTSTART:20260712T100000Z",   // UTC (13:00 TR = 10:00 UTC)
-      "DTEND:20260712T130000Z",
-      `SUMMARY:Ahmet Burak & Nesrin Nişanı`,
-      `LOCATION:${inviteConfig.venueAddress}`,
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-    const icsHref = `data:text/calendar;charset=utf8,${encodeURIComponent(icsContent)}`;
+    // Apple / Outlook Calendar route
+    const icsHref = "/api/calendar";
 
     return (
       <main className="relative flex-1 min-h-screen bg-cream flex flex-col items-center justify-center px-4 py-12 text-center">
