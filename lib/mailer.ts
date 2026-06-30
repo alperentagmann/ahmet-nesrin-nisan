@@ -9,10 +9,6 @@ export async function sendEmail({ subject, text, html }: { subject: string, text
     return;
   }
 
-  // Eger TARGET_EMAILS tanimlanmadiysa, maili direkt gonderici (EMAIL_USER) adresine gonder.
-  // Birden fazla kisiye gitmesini istersen Vercel'e TARGET_EMAILS ekleyip "mail1@gmail.com, mail2@gmail.com" yazabilirsin.
-  const to = process.env.TARGET_EMAILS || user;
-
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -21,15 +17,26 @@ export async function sendEmail({ subject, text, html }: { subject: string, text
     },
   });
 
+  // Hedef e-postaları belirle
+  const targetEmailsStr = process.env.TARGET_EMAILS || user;
+  const targets = targetEmailsStr.split(',').map(e => e.trim()).filter(Boolean);
+
   try {
-    const info = await transporter.sendMail({
-      from: `"Heyyo Nişana birileri daha katılıyor." <${user}>`,
-      to: to,
-      subject: subject,
-      text: text,
-      html: html,
-    });
-    console.log("Email sent: %s", info.messageId);
+    // Vercel'deki TARGET_EMAILS listesindeki e-postalara sırayla gönderim yap.
+    for (let i = 0; i < targets.length; i++) {
+      const email = targets[i];
+      // İlk e-postaya (yani size) "Heyyo...", diğer e-postalara (yeni ekleneceklere) "Nişan Davetlisi..." gitsin.
+      const fromName = i === 0 ? "Heyyo Nişana birileri daha katılıyor." : "Nişan Davetlisi (12.07.2026)";
+
+      const info = await transporter.sendMail({
+        from: `"${fromName}" <${user}>`,
+        to: email,
+        subject: subject,
+        text: text,
+        html: html,
+      });
+      console.log(`Email sent to ${email}: %s`, info.messageId);
+    }
   } catch (error) {
     console.error("Error sending email: ", error);
   }
