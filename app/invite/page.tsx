@@ -275,12 +275,12 @@ export default function InvitePage() {
               <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             
-            <a href={`https://yandex.com.tr/harita/?text=${encodeURIComponent(venueName + " " + venueAddress)}`} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+            <a href="https://yandex.com.tr/harita/?text=Lidya+Garden+Karaagac+Buyukcekmece" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
               Yandex Navigasyon
               <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             
-            <a href={`http://maps.apple.com/?q=${encodeURIComponent(venueName + " " + venueAddress)}`} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+            <a href="http://maps.apple.com/?q=Lidya+Garden+Karaagac+Buyukcekmece" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
               Apple Haritalar
               <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
