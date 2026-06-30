@@ -286,13 +286,13 @@ export default function InvitePage() {
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
           />
+          <CircleAction icon={<CheckIcon />} label="L.C.V. / Katılım Onayı" href="/invite/rsvp" />
           <CircleAction
             icon={<CameraIcon />}
             label="fotoğraf"
             href="https://dashboard.fotify.app/live/9cb13050-cdff-4223-a460-53a4a34f7099"
             external={true}
           />
-          <CircleAction icon={<CheckIcon />} label="lcv" href="/invite/rsvp" />
         </div>
       </div>
 
