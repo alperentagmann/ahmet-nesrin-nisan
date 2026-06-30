@@ -286,7 +286,7 @@ export default function InvitePage() {
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
           />
-          <CircleAction icon={<CheckIcon />} label="L.C.V. / Katılım Onayı" href="/invite/rsvp" />
+          <CircleAction icon={<CheckIcon />} label="LCV/Katılım" href="/invite/rsvp" />
           <CircleAction
             icon={<CameraIcon />}
             label="Fotoğraf Yükle"
