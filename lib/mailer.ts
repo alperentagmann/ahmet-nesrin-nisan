@@ -23,7 +23,7 @@ export async function sendEmail({ subject, text, html }: { subject: string, text
 
   try {
     const info = await transporter.sendMail({
-      from: `"Düğün Davetiyesi" <${user}>`,
+      from: `"Nişan Davetlisi" <${user}>`,
       to: to,
       subject: subject,
       text: text,
