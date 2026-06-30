@@ -17,6 +17,32 @@ export default function RsvpPage() {
   const [noteText, setNoteText] = useState("");
   const [noteSent, setNoteSent] = useState(false);
   const [noteSending, setNoteSending] = useState(false);
+  const [isGeneratingAI, setIsGeneratingAI] = useState(false);
+
+  const aiMessages = [
+    "Birbirinize olan sevginiz hep ilk günkü gibi taze kalsın. Mutluluğunuz daim olsun! ✨",
+    "Bu güzel yola çıkarken attığınız her adımda kalpleriniz hep bir atsın. Harika bir ömür dilerim! 🤍",
+    "Gözlerinizdeki mutluluk ışığı hiç sönmesin, en güzel masallar sizinle olsun. Tebrikler! 🥂",
+    "Birlikteliğiniz bir ömür boyu sevgiyle, saygıyla ve neşeyle dolsun. Harikasınız! 💍",
+    "Yüzünüzdeki gülümseme ve kalbinizdeki sevgi hiç eksilmesin. Masal gibi bir hayat dilerim!"
+  ];
+
+  const generateAIMessage = () => {
+    if (isGeneratingAI) return;
+    setIsGeneratingAI(true);
+    setNoteText("");
+    const randomMsg = aiMessages[Math.floor(Math.random() * aiMessages.length)];
+    
+    let i = 0;
+    const interval = setInterval(() => {
+      setNoteText(randomMsg.substring(0, i + 1));
+      i++;
+      if (i >= randomMsg.length) {
+        clearInterval(interval);
+        setIsGeneratingAI(false);
+      }
+    }, 40);
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -186,18 +212,29 @@ export default function RsvpPage() {
               </div>
             ) : (
               <div className="flex flex-col gap-3">
-                <p className="font-body text-[12.5px] italic text-ink-soft/65 text-center leading-relaxed">
-                  Dilerseniz, bu mutlu günümüz için bir not bırakabilirsiniz
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="font-body text-[12.5px] italic text-ink-soft/65 leading-relaxed">
+                    Dilerseniz, bu mutlu günümüz için bir not bırakabilirsiniz
+                  </p>
+                  <button
+                    onClick={generateAIMessage}
+                    disabled={isGeneratingAI}
+                    className="flex items-center gap-1.5 px-2 py-1 bg-olive-soft/5 hover:bg-olive-soft/10 rounded font-display text-[9px] tracking-wider uppercase text-olive-soft hover:text-olive transition-colors disabled:opacity-50 cursor-pointer"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    {isGeneratingAI ? "Yazılıyor..." : "Yapay Zeka"}
+                  </button>
+                </div>
                 <textarea
                   value={noteText}
                   onChange={(e) => setNoteText(e.target.value)}
+                  disabled={isGeneratingAI}
                   maxLength={400}
                   rows={3}
                   placeholder="Güzel bir şey yazın…"
-                  className="w-full font-body text-[13px] italic text-ink bg-transparent border border-olive-soft/25 rounded-[4px] px-4 py-3 focus:border-[#c5a880] outline-none resize-none placeholder:text-ink-soft/30 transition-colors duration-300 leading-relaxed"
+                  className="w-full font-body text-[13px] italic text-ink bg-transparent border border-olive-soft/25 rounded-[4px] px-4 py-3 focus:border-[#c5a880] outline-none resize-none placeholder:text-ink-soft/30 transition-colors duration-300 leading-relaxed disabled:opacity-70"
                 />
-                {noteText.trim().length > 0 && (
+                {noteText.trim().length > 0 && !isGeneratingAI && (
                   <button
                     onClick={async () => {
                       if (!noteText.trim() || noteSending) return;

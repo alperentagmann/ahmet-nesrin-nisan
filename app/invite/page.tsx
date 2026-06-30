@@ -61,6 +61,15 @@ function CheckIcon() {
   );
 }
 
+function CameraIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+      <circle cx="12" cy="13" r="3"/>
+    </svg>
+  );
+}
+
 function CircleAction({
   icon,
   label,
@@ -271,11 +280,17 @@ export default function InvitePage() {
         )}
 
         {/* Action buttons */}
-        <div className="flex items-center justify-center gap-10 pt-2 z-10">
+        <div className="flex items-center justify-center gap-6 pt-2 z-10">
           <CircleAction
             icon={<MapPinIcon />}
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
+          />
+          <CircleAction
+            icon={<CameraIcon />}
+            label="fotoğraf"
+            href="https://drive.google.com/drive/folders/1r0JYE1jKIGESAy6zl0yJvDw1cgmSe3VO?usp=sharing"
+            external={true}
           />
           <CircleAction icon={<CheckIcon />} label="lcv" href="/invite/rsvp" />
         </div>
