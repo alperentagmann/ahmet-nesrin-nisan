@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { inviteConfig } from "@/lib/invite-config";
 import Countdown from "@/app/components/Countdown";
+import WeatherWidget from "@/app/components/WeatherWidget";
 
 function MapPinIcon() {
   return (
@@ -225,6 +226,11 @@ export default function InvitePage() {
 
         {/* Countdown */}
         <Countdown targetDate={inviteConfig.eventDate} />
+
+        {/* Weather Widget */}
+        <div className="w-full z-10 pt-1 pb-1">
+          <WeatherWidget />
+        </div>
 
         {/* Venue */}
         <div className="flex flex-col gap-1 z-10 pt-2">
