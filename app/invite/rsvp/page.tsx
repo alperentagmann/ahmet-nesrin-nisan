@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { inviteConfig } from "@/lib/invite-config";
+import confetti from "canvas-confetti";
 
 type Choice = "yes" | "no" | null;
 type Status = "idle" | "submitting" | "done" | "error";
@@ -45,6 +46,36 @@ export default function RsvpPage() {
       });
       if (!res.ok) throw new Error("failed");
       setStatus("done");
+
+      // Konfeti yağmuru (Eğer katılıyorsa)
+      if (choice === "yes") {
+        const duration = 3 * 1000;
+        const end = Date.now() + duration;
+        const colors = ["#c5a880", "#e3decb", "#ffffff"];
+
+        (function frame() {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+            zIndex: 9999
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+            zIndex: 9999
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        }());
+      }
     } catch {
       setStatus("error");
       setErrorMsg("Bir hata oluştu. Tekrar deneyin.");
