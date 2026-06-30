@@ -289,7 +289,7 @@ export default function InvitePage() {
           <CircleAction icon={<CheckIcon />} label="L.C.V. / Katılım Onayı" href="/invite/rsvp" />
           <CircleAction
             icon={<CameraIcon />}
-            label="fotoğraf"
+            label="Fotoğraf Yükle"
             href="https://dashboard.fotify.app/live/9cb13050-cdff-4223-a460-53a4a34f7099"
             external={true}
           />
