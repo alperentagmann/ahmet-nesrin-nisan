@@ -84,11 +84,11 @@ function CircleAction({
   onClick?: () => void;
 }) {
   const content = (
-    <div className="flex flex-col items-center gap-2.5 group cursor-pointer" onClick={onClick}>
-      <span className="w-14 h-14 rounded-full text-white flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-95 btn-glow-pulse">
+    <div className="flex flex-col items-center gap-2.5 group cursor-pointer w-[86px]" onClick={onClick}>
+      <span className="w-14 h-14 rounded-full text-white flex items-center justify-center shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-95 btn-glow-pulse">
         {icon}
       </span>
-      <span className="font-display text-[9px] tracking-[0.2em] uppercase text-ink-soft transition-colors duration-300 group-hover:text-[#9a7e58]">
+      <span className="font-display text-[9px] tracking-[0.15em] leading-snug uppercase text-center text-ink-soft transition-colors duration-300 group-hover:text-[#9a7e58]">
         {label}
       </span>
     </div>
