@@ -121,42 +121,48 @@ export default function InvitePage() {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
   const [isRsvpCheckModalOpen, setIsRsvpCheckModalOpen] = useState(false);
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
-  const [photoFile, setPhotoFile] = useState<File | null>(null);
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [photoFiles, setPhotoFiles] = useState<File[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [uploadError, setUploadError] = useState("");
+  const [uploadedCount, setUploadedCount] = useState(0);
 
   const handlePhotoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setPhotoFile(file);
-      setPhotoPreview(URL.createObjectURL(file));
+    const files = Array.from(e.target.files || []);
+    if (files.length > 0) {
+      setPhotoFiles(files);
       setUploadSuccess(false);
       setUploadError("");
+      setUploadedCount(0);
     }
   };
 
   const handlePhotoUpload = async () => {
-    if (!photoFile) return;
+    if (photoFiles.length === 0) return;
     setIsUploading(true);
     setUploadError("");
+    setUploadedCount(0);
     
-    const formData = new FormData();
-    formData.append("file", photoFile);
-    
+    let successCount = 0;
     try {
-      const res = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
-      
-      if (!res.ok) throw new Error("Yükleme başarısız oldu");
+      for (const file of photoFiles) {
+        const formData = new FormData();
+        formData.append("file", file);
+        
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+        
+        if (!res.ok) throw new Error("Hata");
+        successCount++;
+        setUploadedCount(successCount);
+      }
       
       setUploadSuccess(true);
-      setPhotoFile(null);
+      setPhotoFiles([]);
     } catch (err) {
-      setUploadError("Yükleme sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+      setUploadError(`${successCount} fotoğraf yüklendi ancak kalanı tamamlanamadı. Yeniden deneyebilirsiniz.`);
     } finally {
       setIsUploading(false);
     }
@@ -165,10 +171,10 @@ export default function InvitePage() {
   const closePhotoModal = () => {
     setIsPhotoModalOpen(false);
     setTimeout(() => {
-      setPhotoFile(null);
-      setPhotoPreview(null);
+      setPhotoFiles([]);
       setUploadSuccess(false);
       setUploadError("");
+      setUploadedCount(0);
     }, 300);
   };
   
@@ -485,28 +491,29 @@ export default function InvitePage() {
                   <button 
                     onClick={() => {
                       setUploadSuccess(false);
-                      setPhotoPreview(null);
                     }}
                     className="mt-2 text-[11px] font-display uppercase tracking-widest text-olive hover:text-olive-deep underline decoration-olive/30 underline-offset-4 cursor-pointer"
                   >
                     Başka Fotoğraf Yükle
                   </button>
                 </div>
-              ) : photoFile && photoPreview ? (
+              ) : photoFiles.length > 0 ? (
                 <div className="flex flex-col gap-4 w-full items-center animate-[fadeIn_0.4s_ease-out]">
-                  <div className="relative w-full aspect-square rounded overflow-hidden border border-olive-soft/30 bg-ink/5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={photoPreview} alt="Preview" className="object-cover w-full h-full" />
+                  <div className="relative w-full aspect-video rounded overflow-hidden border border-olive-soft/30 bg-ink/5 flex flex-col items-center justify-center">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-olive mb-2 opacity-50"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <p className="font-display text-[14px] text-ink">{photoFiles.length} fotoğraf seçildi</p>
+                    
                     {isUploading && (
-                      <div className="absolute inset-0 bg-paper/60 backdrop-blur-sm flex items-center justify-center">
+                      <div className="absolute inset-0 bg-paper/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3">
                         <div className="w-8 h-8 border-2 border-olive border-t-transparent rounded-full animate-spin"></div>
+                        <p className="font-display text-[11px] uppercase tracking-wider text-olive-deep">Yükleniyor... ({uploadedCount}/{photoFiles.length})</p>
                       </div>
                     )}
                   </div>
-                  {uploadError && <p className="text-[12px] text-red-500 font-body">{uploadError}</p>}
+                  {uploadError && <p className="text-[12px] text-red-500 font-body text-center">{uploadError}</p>}
                   <div className="flex gap-2 w-full">
                     <button 
-                      onClick={() => { setPhotoFile(null); setPhotoPreview(null); }}
+                      onClick={() => setPhotoFiles([])}
                       disabled={isUploading}
                       className="flex-1 py-3 px-4 border border-olive-soft/30 text-ink rounded text-[11px] font-display uppercase tracking-[0.15em] hover:bg-olive/5 transition-colors duration-300 disabled:opacity-50 cursor-pointer"
                     >
@@ -529,11 +536,12 @@ export default function InvitePage() {
                     <line x1="12" y1="3" x2="12" y2="15" />
                   </svg>
                   <span className="font-display text-[11px] tracking-[0.15em] uppercase text-ink mt-2">
-                    Fotoğraf Seç
+                    Çoklu Fotoğraf Seç
                   </span>
                   <input 
                     type="file" 
                     accept="image/*" 
+                    multiple
                     onChange={handlePhotoSelect} 
                     className="hidden" 
                   />
