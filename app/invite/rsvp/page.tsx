@@ -330,6 +330,47 @@ export default function RsvpPage() {
             Davetiyeye dön
           </Link>
         </div>
+
+        {/* Map Selection Modal */}
+        {isMapModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-ink/40 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+            <div className="relative w-full max-w-[280px] bg-paper border border-olive-soft/40 p-6 py-8 rounded-[4px] shadow-2xl flex flex-col items-center gap-4 text-center">
+              
+              <button 
+                onClick={() => setIsMapModalOpen(false)}
+                className="absolute top-3 right-3 text-ink-soft hover:text-ink transition-colors cursor-pointer"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+
+              <h3 className="font-display text-[12px] sm:text-[13px] tracking-[0.08em] text-ink uppercase mb-2">Konumu Görmek İçin Uygulama Seçin</h3>
+              
+              <a href={inviteConfig.mapsUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+                <div className="flex items-center gap-3">
+                  <GoogleIcon />
+                  <span>Google Haritalar</span>
+                </div>
+                <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              
+              <a href="https://yandex.com/maps/?text=Trakya+2+Cad.+Menekse+6+Sokak+No:2,+Buyukcekmece,+Istanbul" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+                <div className="flex items-center gap-3">
+                  <YandexIcon />
+                  <span>Yandex Navigasyon</span>
+                </div>
+                <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              
+              <a href="http://maps.apple.com/?q=Trakya+2+Cad.+Menekse+6+Sokak+No:2,+Buyukcekmece,+Istanbul" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
+                <div className="flex items-center gap-3">
+                  <AppleIcon />
+                  <span>Apple Haritalar</span>
+                </div>
+                <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        )}
       </main>
     );
   }
@@ -461,47 +502,6 @@ export default function RsvpPage() {
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
-
-      {/* Map Selection Modal */}
-      {isMapModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-ink/40 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
-          <div className="relative w-full max-w-[280px] bg-paper border border-olive-soft/40 p-6 py-8 rounded-[4px] shadow-2xl flex flex-col items-center gap-4 text-center">
-            
-            <button 
-              onClick={() => setIsMapModalOpen(false)}
-              className="absolute top-3 right-3 text-ink-soft hover:text-ink transition-colors cursor-pointer"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-
-            <h3 className="font-display text-[12px] sm:text-[13px] tracking-[0.08em] text-ink uppercase mb-2">Konumu Görmek İçin Uygulama Seçin</h3>
-            
-            <a href={inviteConfig.mapsUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
-              <div className="flex items-center gap-3">
-                <GoogleIcon />
-                <span>Google Haritalar</span>
-              </div>
-              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            
-            <a href="https://yandex.com/maps/?text=Trakya+2+Cad.+Menekse+6+Sokak+No:2,+Buyukcekmece,+Istanbul" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
-              <div className="flex items-center gap-3">
-                <YandexIcon />
-                <span>Yandex Navigasyon</span>
-              </div>
-              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            
-            <a href="http://maps.apple.com/?q=Trakya+2+Cad.+Menekse+6+Sokak+No:2,+Buyukcekmece,+Istanbul" target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
-              <div className="flex items-center gap-3">
-                <AppleIcon />
-                <span>Apple Haritalar</span>
-              </div>
-              <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
