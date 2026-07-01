@@ -24,8 +24,8 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Nesrin & Ahmet Burak",
-  description: "Sizi düğünümüze davet etmekten mutluluk duyuyoruz",
+  title: "Ahmet Burak & Nesrin",
+  description: "Sizi nişanımıza davet etmekten mutluluk duyuyoruz",
 };
 
 export default function RootLayout({
