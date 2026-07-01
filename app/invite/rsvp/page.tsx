@@ -338,9 +338,7 @@ export default function RsvpPage() {
             </button>
           </div>
 
-          <p className="font-body text-[0.95rem] italic text-ink-soft/90 leading-relaxed text-center">
-            Nişan Tarihine Kadar Katılım Durumunuzu<br />Lütfen Bildiriniz
-          </p>
+
 
           <div className="w-full flex flex-col gap-5 text-left pt-2">
             <label className="flex flex-col gap-2">
@@ -376,9 +374,13 @@ export default function RsvpPage() {
             <p className="font-body text-sm text-[#a85c4a]">{errorMsg}</p>
           )}
 
-          <button
-            type="submit"
-            disabled={status === "submitting"}
+          <div className="w-full flex flex-col gap-3 pt-4">
+            <p className="font-display text-[9.5px] tracking-[0.2em] uppercase text-ink-soft/80 bg-olive-soft/5 py-2 px-3 rounded text-center border border-olive-soft/10">
+              Lütfen katılım durumunuzu bildiriniz
+            </p>
+            <button
+              type="submit"
+              disabled={status === "submitting"}
             className="w-full font-display text-[12px] tracking-[0.18em] uppercase bg-olive text-cream rounded-full px-6 py-4 hover:bg-olive-deep transition-colors duration-300 disabled:opacity-60 cursor-pointer shadow-[0_4px_14px_rgba(197,168,128,0.2)] btn-glow-pulse flex items-center justify-center gap-2"
           >
             {status === "submitting" ? (
@@ -397,6 +399,7 @@ export default function RsvpPage() {
               "Onayla"
             )}
           </button>
+          </div>
 
           <Link
             href="/invite"
