@@ -119,6 +119,7 @@ function CircleAction({
 
 export default function InvitePage() {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [isRsvpCheckModalOpen, setIsRsvpCheckModalOpen] = useState(false);
   
   const { coupleNames, parents, dateLabel, timeLabel, venueName, venueAddress, mapsUrl, receptionNote } =
     inviteConfig;
@@ -296,7 +297,7 @@ export default function InvitePage() {
             <CircleAction
               icon={<MapPinIcon />}
             label="konum"
-            onClick={() => setIsMapModalOpen(true)}
+            onClick={() => setIsRsvpCheckModalOpen(true)}
           />
           <CircleAction icon={<CheckIcon />} label="LCV/Katılım" href="/invite/rsvp" primary={true} />
           <CircleAction
@@ -353,7 +354,50 @@ export default function InvitePage() {
               </div>
               <svg className="opacity-50 group-hover:opacity-100 transition-opacity" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+          </div>
+        </div>
+      )}
 
+      {/* RSVP Check Modal before Map */}
+      {isRsvpCheckModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-ink/40 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+          <div className="relative w-full max-w-[300px] bg-paper border border-olive-soft/40 p-6 py-8 rounded-[4px] shadow-2xl flex flex-col items-center gap-6 text-center">
+            
+            <button 
+              onClick={() => setIsRsvpCheckModalOpen(false)}
+              className="absolute top-3 right-3 text-ink-soft hover:text-ink transition-colors cursor-pointer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div className="flex flex-col gap-2 items-center">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-olive mb-1">
+                <path d="M5 12.5 9.5 17 19 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <h3 className="font-display text-[15px] tracking-[0.08em] text-ink uppercase">Katılım Durumunuzu Bildirdiniz mi?</h3>
+              <p className="font-body text-[14px] text-ink-soft/90 italic leading-snug">
+                Konum bilgilerini görmeden önce lütfen katılım formunu doldurun.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-3 w-full">
+              <button 
+                onClick={() => {
+                  setIsRsvpCheckModalOpen(false);
+                  setIsMapModalOpen(true);
+                }} 
+                className="w-full py-3 px-4 bg-olive text-cream rounded text-[12px] font-display uppercase tracking-[0.15em] hover:bg-olive-deep transition-colors duration-300"
+              >
+                Evet, Bildirdim
+              </button>
+              
+              <Link 
+                href="/invite/rsvp"
+                className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[12px] font-display uppercase tracking-[0.15em] text-ink hover:bg-olive hover:text-cream transition-colors duration-300"
+              >
+                Hayır, Şimdi Bildireyim
+              </Link>
+            </div>
           </div>
         </div>
       )}

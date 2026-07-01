@@ -192,6 +192,20 @@ export default function RsvpPage() {
                 </svg>
                 Apple Takvim / Diğer
               </a>
+
+              {/* Location */}
+              <a
+                href={inviteConfig.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2.5 w-full font-display text-[11px] tracking-[0.15em] uppercase text-ink border border-olive-soft/45 rounded-full px-4 py-3 hover:bg-olive hover:text-cream hover:border-olive transition-colors duration-300"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 21s-7-7.2-7-12a7 7 0 1 1 14 0c0 4.8-7 12-7 12Z" />
+                  <circle cx="12" cy="9" r="2.4" />
+                </svg>
+                Konumu Gör
+              </a>
             </div>
           )}
 
