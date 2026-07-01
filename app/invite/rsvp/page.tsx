@@ -223,7 +223,7 @@ export default function RsvpPage() {
                   <button
                     onClick={generateAIMessage}
                     disabled={isGeneratingAI}
-                    className="flex items-center gap-1.5 px-2 py-1 bg-olive-soft/5 hover:bg-olive-soft/10 rounded font-display text-[9px] tracking-wider uppercase text-olive-soft hover:text-olive transition-colors disabled:opacity-50 cursor-pointer"
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#c5a880]/10 border border-[#c5a880]/25 hover:bg-[#c5a880]/20 rounded-full font-display text-[9px] tracking-wider uppercase text-[#c5a880] transition-colors disabled:opacity-60 cursor-pointer shadow-sm"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                     {isGeneratingAI ? "Yazılıyor..." : "Yapay Zeka"}
@@ -232,11 +232,11 @@ export default function RsvpPage() {
                 <textarea
                   value={noteText}
                   onChange={(e) => setNoteText(e.target.value)}
-                  disabled={isGeneratingAI}
+                  readOnly={isGeneratingAI}
                   maxLength={400}
                   rows={3}
                   placeholder="Güzel bir şey yazın…"
-                  className="w-full font-body text-[13px] italic text-ink bg-transparent border border-olive-soft/25 rounded-[4px] px-4 py-3 focus:border-[#c5a880] outline-none resize-none placeholder:text-ink-soft/30 transition-colors duration-300 leading-relaxed disabled:opacity-70"
+                  className="w-full font-body text-[13px] italic text-ink bg-transparent border border-olive-soft/25 rounded-[4px] px-4 py-3 focus:border-[#c5a880] outline-none resize-none placeholder:text-ink-soft/30 transition-colors duration-300 leading-relaxed"
                 />
                 {noteText.trim().length > 0 && !isGeneratingAI && (
                   <button
