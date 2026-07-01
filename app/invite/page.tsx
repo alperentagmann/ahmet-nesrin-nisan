@@ -76,16 +76,24 @@ function CircleAction({
   href,
   external,
   onClick,
+  primary = false,
 }: {
   icon: React.ReactNode;
   label: string;
   href?: string;
   external?: boolean;
   onClick?: () => void;
+  primary?: boolean;
 }) {
   const content = (
     <div className="flex flex-col items-center gap-2.5 group cursor-pointer w-[86px]" onClick={onClick}>
-      <span className="w-14 h-14 rounded-full text-white flex items-center justify-center shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-95 btn-glow-pulse">
+      <span
+        className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-95 ${
+          primary
+            ? "text-white btn-glow-pulse"
+            : "bg-white text-olive border border-olive-soft/40 shadow-sm hover:shadow-md"
+        }`}
+      >
         {icon}
       </span>
       <span className="font-display text-[9px] tracking-[0.15em] leading-snug uppercase text-center text-ink-soft transition-colors duration-300 group-hover:text-[#9a7e58]">
@@ -286,7 +294,7 @@ export default function InvitePage() {
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
           />
-          <CircleAction icon={<CheckIcon />} label="LCV/Katılım" href="/invite/rsvp" />
+          <CircleAction icon={<CheckIcon />} label="LCV/Katılım" href="/invite/rsvp" primary={true} />
           <CircleAction
             icon={<CameraIcon />}
             label="Fotoğraf Yükle"
