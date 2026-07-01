@@ -120,6 +120,57 @@ function CircleAction({
 export default function InvitePage() {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
   const [isRsvpCheckModalOpen, setIsRsvpCheckModalOpen] = useState(false);
+  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+
+  const handlePhotoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setPhotoFile(file);
+      setPhotoPreview(URL.createObjectURL(file));
+      setUploadSuccess(false);
+      setUploadError("");
+    }
+  };
+
+  const handlePhotoUpload = async () => {
+    if (!photoFile) return;
+    setIsUploading(true);
+    setUploadError("");
+    
+    const formData = new FormData();
+    formData.append("file", photoFile);
+    
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (!res.ok) throw new Error("Yükleme başarısız oldu");
+      
+      setUploadSuccess(true);
+      setPhotoFile(null);
+    } catch (err) {
+      setUploadError("Yükleme sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const closePhotoModal = () => {
+    setIsPhotoModalOpen(false);
+    setTimeout(() => {
+      setPhotoFile(null);
+      setPhotoPreview(null);
+      setUploadSuccess(false);
+      setUploadError("");
+    }, 300);
+  };
   
   const { coupleNames, parents, dateLabel, timeLabel, venueName, venueAddress, mapsUrl, receptionNote } =
     inviteConfig;
@@ -303,8 +354,7 @@ export default function InvitePage() {
           <CircleAction
             icon={<CameraIcon />}
             label="Fotoğraf Yükle"
-            href="https://drive.google.com/drive/folders/1r0JYE1jKIGESAy6zl0yJvDw1cgmSe3VO?usp=drive_link"
-            external={true}
+            onClick={() => setIsPhotoModalOpen(true)}
           />
           </div>
         </div>
@@ -397,6 +447,98 @@ export default function InvitePage() {
               >
                 Hayır, Şimdi Bildireyim
               </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Photo Upload Modal */}
+      {isPhotoModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-ink/40 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+          <div className="relative w-full max-w-[320px] bg-paper border border-olive-soft/40 p-6 py-8 rounded-[4px] shadow-2xl flex flex-col items-center gap-6 text-center">
+            
+            <button 
+              onClick={closePhotoModal}
+              className="absolute top-3 right-3 text-ink-soft hover:text-ink transition-colors cursor-pointer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div className="flex flex-col gap-2 items-center">
+              <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center text-olive mb-2">
+                <CameraIcon />
+              </div>
+              <h3 className="font-display text-[15px] tracking-[0.08em] text-ink uppercase">Anılarınızı Paylaşın</h3>
+              <p className="font-body text-[13px] text-ink-soft/90 italic leading-snug">
+                Bizimle bu özel günü ölümsüzleştirmek için çektiğiniz harika kareleri yükleyebilirsiniz.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-3 w-full">
+              {uploadSuccess ? (
+                <div className="flex flex-col items-center gap-3 py-4 animate-[fadeIn_0.4s_ease-out]">
+                  <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 mb-2">
+                    <CheckIcon />
+                  </div>
+                  <p className="font-display text-[12px] tracking-wider text-green-700 uppercase font-semibold">Başarıyla Yüklendi!</p>
+                  <p className="font-body text-[13px] italic text-ink-soft">Güzel anınızı paylaştığınız için teşekkürler.</p>
+                  <button 
+                    onClick={() => {
+                      setUploadSuccess(false);
+                      setPhotoPreview(null);
+                    }}
+                    className="mt-2 text-[11px] font-display uppercase tracking-widest text-olive hover:text-olive-deep underline decoration-olive/30 underline-offset-4 cursor-pointer"
+                  >
+                    Başka Fotoğraf Yükle
+                  </button>
+                </div>
+              ) : photoFile && photoPreview ? (
+                <div className="flex flex-col gap-4 w-full items-center animate-[fadeIn_0.4s_ease-out]">
+                  <div className="relative w-full aspect-square rounded overflow-hidden border border-olive-soft/30 bg-ink/5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={photoPreview} alt="Preview" className="object-cover w-full h-full" />
+                    {isUploading && (
+                      <div className="absolute inset-0 bg-paper/60 backdrop-blur-sm flex items-center justify-center">
+                        <div className="w-8 h-8 border-2 border-olive border-t-transparent rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                  </div>
+                  {uploadError && <p className="text-[12px] text-red-500 font-body">{uploadError}</p>}
+                  <div className="flex gap-2 w-full">
+                    <button 
+                      onClick={() => { setPhotoFile(null); setPhotoPreview(null); }}
+                      disabled={isUploading}
+                      className="flex-1 py-3 px-4 border border-olive-soft/30 text-ink rounded text-[11px] font-display uppercase tracking-[0.15em] hover:bg-olive/5 transition-colors duration-300 disabled:opacity-50 cursor-pointer"
+                    >
+                      İptal
+                    </button>
+                    <button 
+                      onClick={handlePhotoUpload}
+                      disabled={isUploading}
+                      className="flex-1 py-3 px-4 bg-olive text-cream rounded text-[11px] font-display uppercase tracking-[0.15em] hover:bg-olive-deep transition-colors duration-300 disabled:opacity-50 cursor-pointer"
+                    >
+                      {isUploading ? "Yükleniyor..." : "Yükle"}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <label className="w-full py-4 px-4 border border-dashed border-olive-soft rounded bg-olive/5 hover:bg-olive/10 transition-colors duration-300 flex flex-col items-center justify-center gap-2 cursor-pointer min-h-[140px] group">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-olive group-hover:scale-110 transition-transform">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                  <span className="font-display text-[11px] tracking-[0.15em] uppercase text-ink mt-2">
+                    Fotoğraf Seç
+                  </span>
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={handlePhotoSelect} 
+                    className="hidden" 
+                  />
+                </label>
+              )}
             </div>
           </div>
         </div>
