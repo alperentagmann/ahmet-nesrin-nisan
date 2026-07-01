@@ -78,13 +78,13 @@ export default function AdminPage() {
     setFilter("all");
   }
 
-  // Parse guest count from free-text field — handles "2", "2+1", "3 Kişi", "2+1 Kişi", etc.
+  // Parse guest count from free-text field — handles "2", "2+1", "3 Kişi", "2+1 Kişi", "0,5 Kişi", vb.
   function parseGuestCount(raw: string): number {
     if (!raw) return 1;
-    // Extract all numbers and sum them (handles "2+1", "2 + 1", "3 kişi")
-    const nums = raw.match(/\d+/g);
+    // Extract all numbers including decimals (handles "2+1", "2 + 1", "3 kişi", "0,5", "0.5")
+    const nums = raw.match(/\d+(?:[.,]\d+)?/g);
     if (!nums) return 1;
-    return nums.reduce((acc, n) => acc + parseInt(n, 10), 0);
+    return nums.reduce((acc, n) => acc + parseFloat(n.replace(',', '.')), 0);
   }
 
   const totalGuests = useMemo(() => {
