@@ -329,7 +329,7 @@ export default function InvitePage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
 
-            <h3 className="font-display text-[15px] tracking-[0.1em] text-ink uppercase mb-2">Uygulama Seçin</h3>
+            <h3 className="font-display text-[12px] sm:text-[13px] tracking-[0.08em] text-ink uppercase mb-2">Konumu Görmek İçin Uygulama Seçin</h3>
             
             <a href={mapsUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMapModalOpen(false)} className="w-full py-3 px-4 border border-olive-soft/30 rounded text-[13px] font-body italic text-ink hover:bg-olive hover:text-cream transition-colors duration-300 flex items-center justify-between group">
               <div className="flex items-center gap-3">
