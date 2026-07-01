@@ -6,7 +6,16 @@ function getRedis(): Redis {
   if (!redis) {
     const url = process.env.UPSTASH_REDIS_REST_URL
     const token = process.env.UPSTASH_REDIS_REST_TOKEN
+    
     if (!url || !token) {
+      // Local testing fallback: If keys are missing in dev, just mock it so UI testing works.
+      if (process.env.NODE_ENV === "development") {
+        return {
+          lpush: async () => 1,
+          lrange: async () => [],
+        } as unknown as Redis;
+      }
+      
       throw new Error(
         "UPSTASH_REDIS_REST_URL ve UPSTASH_REDIS_REST_TOKEN environment variable'ları eksik. " +
         "Vercel Dashboard > Settings > Environment Variables bölümünden ekleyin."
