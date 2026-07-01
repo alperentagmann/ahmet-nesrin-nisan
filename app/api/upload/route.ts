@@ -1,12 +1,7 @@
 import { NextResponse } from "next/server";
-import { v2 as cloudinary } from "cloudinary";
 
-// Configure Cloudinary explicitly if auto-config fails in edge/serverless environments
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_URL?.match(/@([^/]+)/)?.[1],
-  api_key: process.env.CLOUDINARY_URL?.match(/:\/\/([^:]+)/)?.[1],
-  api_secret: process.env.CLOUDINARY_URL?.match(/:([^@]+)@/)?.[1],
-});
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 export async function POST(request: Request) {
   try {
@@ -17,27 +12,32 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Read the file into a buffer
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+      console.error("Telegram credentials missing");
+      return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 });
+    }
 
-    // Upload to Cloudinary using a stream
-    const result = await new Promise((resolve, reject) => {
-      const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: "misafir-fotograflari" },
-        (error, result) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(result);
-          }
-        }
-      );
-      
-      uploadStream.end(buffer);
+    // Prepare payload for Telegram
+    const telegramFormData = new FormData();
+    telegramFormData.append("chat_id", TELEGRAM_CHAT_ID);
+    
+    // We send as a document so Telegram doesn't compress the image too much
+    telegramFormData.append("document", file, file.name);
+
+    // Telegram Bot API Endpoint for sending a document
+    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument`, {
+      method: "POST",
+      body: telegramFormData,
     });
 
-    return NextResponse.json(result);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Telegram error:", errorText);
+      throw new Error("Failed to send to Telegram");
+    }
+
+    const data = await response.json();
+    return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
