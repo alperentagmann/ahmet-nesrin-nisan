@@ -35,7 +35,7 @@ export default function RsvpPage() {
     
     const randomTemplate = aiTemplates[Math.floor(Math.random() * aiTemplates.length)];
     const senderName = name.trim() ? `\n\nSevgiler,\n${name.trim()}` : "";
-    const fullMsg = `Sevgili Ahmet ve Nesrin,\n\n${randomTemplate}${senderName}`;
+    const fullMsg = `Sevgili Nesrin ve Ahmet,\n\n${randomTemplate}${senderName}`;
     
     let i = 0;
     const interval = setInterval(() => {
