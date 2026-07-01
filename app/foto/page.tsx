@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { inviteConfig } from "@/lib/invite-config";
 
 function CameraIcon() {
   return (
@@ -33,8 +32,6 @@ export default function FotoPage() {
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [uploadError, setUploadError] = useState("");
   const [uploadedCount, setUploadedCount] = useState(0);
-
-  const { coupleNames } = inviteConfig;
 
   const handlePhotoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
