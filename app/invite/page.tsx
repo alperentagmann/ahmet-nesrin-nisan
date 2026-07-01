@@ -291,7 +291,7 @@ export default function InvitePage() {
         <div className="flex flex-col items-center gap-5 pt-4 z-10">
           {/* LCV Reminder */}
           <div className="animate-[pulse_3s_ease-in-out_infinite]">
-            <p className="font-display text-[9px] tracking-[0.2em] uppercase text-[#c5a880] bg-[#c5a880]/10 py-1.5 px-4 rounded-full border border-[#c5a880]/20 text-center shadow-sm">
+            <p className="font-display text-[11px] font-semibold tracking-[0.12em] uppercase text-ink bg-[#c5a880]/20 py-2 px-5 rounded-full border border-[#c5a880]/40 text-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
               Lütfen katılım durumunuzu bildiriniz
             </p>
           </div>
