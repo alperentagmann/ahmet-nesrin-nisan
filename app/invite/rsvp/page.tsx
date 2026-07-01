@@ -152,9 +152,15 @@ export default function RsvpPage() {
 
           <h1 className="font-display text-2xl text-ink tracking-[0.05em] uppercase z-10">Teşekkürler!</h1>
           <p className="font-body text-[1rem] italic text-ink-soft/90 max-w-[17rem] leading-relaxed z-10">
-            {choice === "yes"
-              ? "Katılımınız onaylandı. Sizi görmek için sabırsızlanıyoruz!"
-              : "Bize bildirdiğiniz için teşekkürler."}
+            {choice === "yes" ? (
+              <>
+                Katılımınız onaylandı.
+                <br />
+                Sizi görmek için sabırsızlanıyoruz!
+              </>
+            ) : (
+              "Bize bildirdiğiniz için teşekkürler."
+            )}
           </p>
 
           {/* Calendar Buttons — only if attending */}
