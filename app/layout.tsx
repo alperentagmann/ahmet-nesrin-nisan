@@ -24,7 +24,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Ahmet Burak & Nesrin",
+  title: "Nesrin Saraç & Ahmet Burak Tağman",
   description: "Sizi nişanımıza davet etmekten mutluluk duyuyoruz",
 };
 
