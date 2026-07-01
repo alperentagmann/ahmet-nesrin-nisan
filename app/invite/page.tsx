@@ -288,9 +288,17 @@ export default function InvitePage() {
         )}
 
         {/* Action buttons */}
-        <div className="flex items-center justify-center gap-6 pt-2 z-10">
-          <CircleAction
-            icon={<MapPinIcon />}
+        <div className="flex flex-col items-center gap-5 pt-4 z-10">
+          {/* LCV Reminder */}
+          <div className="animate-[pulse_3s_ease-in-out_infinite]">
+            <p className="font-display text-[9px] tracking-[0.2em] uppercase text-[#c5a880] bg-[#c5a880]/10 py-1.5 px-4 rounded-full border border-[#c5a880]/20 text-center shadow-sm">
+              Lütfen katılım durumunuzu bildiriniz
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-6">
+            <CircleAction
+              icon={<MapPinIcon />}
             label="konum"
             onClick={() => setIsMapModalOpen(true)}
           />
@@ -301,6 +309,7 @@ export default function InvitePage() {
             href="https://drive.google.com/drive/folders/1r0JYE1jKIGESAy6zl0yJvDw1cgmSe3VO?usp=drive_link"
             external={true}
           />
+          </div>
         </div>
       </div>
 

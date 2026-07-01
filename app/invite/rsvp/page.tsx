@@ -375,9 +375,6 @@ export default function RsvpPage() {
           )}
 
           <div className="w-full flex flex-col gap-3 pt-4">
-            <p className="font-display text-[9.5px] tracking-[0.2em] uppercase text-ink-soft/80 bg-olive-soft/5 py-2 px-3 rounded text-center border border-olive-soft/10">
-              Lütfen katılım durumunuzu bildiriniz
-            </p>
             <button
               type="submit"
               disabled={status === "submitting"}
