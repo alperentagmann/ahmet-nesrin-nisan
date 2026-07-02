@@ -296,10 +296,10 @@ export default function InvitePage() {
 
           <span className="font-body text-lg italic text-ink-soft/75 my-1">&amp;</span>
 
-          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-1 mb-3.5">
+          <h1 className="font-script text-[3.8rem] sm:text-[4.4rem] leading-[0.85] text-olive-deep mt-1 mb-1.5">
             {coupleNames.second}
           </h1>
-          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug">
+          <p className="font-body text-[0.88rem] tracking-wide italic text-ink-soft leading-snug -mt-2.5">
             {parents.groom.names}
           </p>
         </div>
