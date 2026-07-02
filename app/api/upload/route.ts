@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Telegram API Error:", response.status, errorText);
-      return NextResponse.json({ error: `Telegram error: ${errorText}` }, { status: 500 });
+      return NextResponse.json({ error: `Fotoğraf boyutu veya sunucu kaynaklı bir hata oluştu. Lütfen tekrar deneyin.` }, { status: 500 });
     }
 
     const data = await response.json();
