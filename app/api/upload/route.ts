@@ -32,14 +32,14 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("Telegram error:", errorText);
-      throw new Error("Failed to send to Telegram");
+      console.error("Telegram API Error:", response.status, errorText);
+      return NextResponse.json({ error: `Telegram error: ${errorText}` }, { status: 500 });
     }
 
     const data = await response.json();
     return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error("Upload error:", error);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    console.error("Caught Upload error:", error);
+    return NextResponse.json({ error: "Upload failed: " + (error as any).message }, { status: 500 });
   }
 }

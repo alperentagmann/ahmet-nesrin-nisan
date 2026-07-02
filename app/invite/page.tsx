@@ -168,7 +168,10 @@ export default function InvitePage() {
           body: formData,
         });
         
-        if (!res.ok) throw new Error("Hata");
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || "Bilinmeyen bir hata oluştu");
+        }
         successCount++;
         setUploadedCount(successCount);
 
@@ -179,8 +182,8 @@ export default function InvitePage() {
       
       setUploadSuccess(true);
       setPhotoFiles([]);
-    } catch (err) {
-      setUploadError(`${successCount} fotoğraf yüklendi ancak kalanı tamamlanamadı. Yeniden deneyebilirsiniz.`);
+    } catch (err: any) {
+      setUploadError(`Hata: ${err.message}`);
     } finally {
       setIsUploading(false);
     }
