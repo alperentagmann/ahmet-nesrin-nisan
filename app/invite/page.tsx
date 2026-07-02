@@ -350,17 +350,19 @@ export default function InvitePage() {
           <WeatherWidget />
         </div>
 
-        {/* Venue */}
-        <div className="flex flex-col gap-1 z-10 pt-2">
-          <p className="font-display text-[1rem] tracking-[0.12em] uppercase text-ink">{venueName}</p>
-          <p className="font-body text-[0.94rem] text-ink-soft leading-relaxed max-w-[16rem]">{venueAddress}</p>
-        </div>
+        {/* Venue & Note Group */}
+        <div className="flex flex-col items-center gap-3 z-10 pt-2">
+          <div className="flex flex-col gap-1">
+            <p className="font-display text-[1rem] tracking-[0.12em] uppercase text-ink">{venueName}</p>
+            <p className="font-body text-[0.94rem] text-ink-soft leading-relaxed max-w-[16rem]">{venueAddress}</p>
+          </div>
 
-        {receptionNote && (
-          <p className="font-body text-[0.94rem] text-ink-soft/95 leading-relaxed max-w-[18rem] z-10">
-            {receptionNote}
-          </p>
-        )}
+          {receptionNote && (
+            <p className="font-body text-[0.94rem] text-ink-soft/95 leading-relaxed max-w-[18rem]">
+              {receptionNote}
+            </p>
+          )}
+        </div>
 
         {/* Action buttons */}
         <div className="flex flex-col items-center gap-5 pt-4 z-10">
