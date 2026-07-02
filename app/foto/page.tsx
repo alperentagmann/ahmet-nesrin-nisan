@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import imageCompression from "browser-image-compression";
 
 function CameraIcon() {
   return (
@@ -51,9 +52,23 @@ export default function FotoPage() {
     
     let successCount = 0;
     try {
-      for (const file of photoFiles) {
+      const options = {
+        maxSizeMB: 2, // Vercel limit is 4.5MB, keeping it at 2MB ensures safety and speed
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+
+      for (let i = 0; i < photoFiles.length; i++) {
+        const file = photoFiles[i];
         const formData = new FormData();
-        formData.append("file", file);
+        
+        try {
+          const compressedFile = await imageCompression(file, options);
+          formData.append("file", compressedFile, file.name);
+        } catch (error) {
+          // Fallback if compression fails
+          formData.append("file", file);
+        }
         
         const res = await fetch("/api/upload", {
           method: "POST",
@@ -63,6 +78,11 @@ export default function FotoPage() {
         if (!res.ok) throw new Error("Hata");
         successCount++;
         setUploadedCount(successCount);
+
+        // Wait 500ms between uploads to avoid Telegram rate limits
+        if (i < photoFiles.length - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+        }
       }
       
       setUploadSuccess(true);

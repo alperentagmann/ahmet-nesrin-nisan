@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import imageCompression from "browser-image-compression";
 import { inviteConfig } from "@/lib/invite-config";
 import Countdown from "@/app/components/Countdown";
 import WeatherWidget from "@/app/components/WeatherWidget";
@@ -145,9 +146,22 @@ export default function InvitePage() {
     
     let successCount = 0;
     try {
-      for (const file of photoFiles) {
+      const options = {
+        maxSizeMB: 2, // Vercel limit is 4.5MB, keeping it at 2MB ensures safety and speed
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+
+      for (let i = 0; i < photoFiles.length; i++) {
+        const file = photoFiles[i];
         const formData = new FormData();
-        formData.append("file", file);
+        
+        try {
+          const compressedFile = await imageCompression(file, options);
+          formData.append("file", compressedFile, file.name);
+        } catch (error) {
+          formData.append("file", file);
+        }
         
         const res = await fetch("/api/upload", {
           method: "POST",
@@ -157,6 +171,10 @@ export default function InvitePage() {
         if (!res.ok) throw new Error("Hata");
         successCount++;
         setUploadedCount(successCount);
+
+        if (i < photoFiles.length - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+        }
       }
       
       setUploadSuccess(true);
