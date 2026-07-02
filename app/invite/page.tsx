@@ -216,7 +216,7 @@ export default function InvitePage() {
       />
 
       {/* The Invitation Card */}
-      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-6 py-12 sm:px-10 sm:py-14 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-7 sm:gap-8 animate-[fadeIn_0.7s_ease-out] luxury-card border-glow-breath z-20">
+      <div className="relative w-full max-w-sm sm:max-w-md bg-paper border border-olive-soft/35 px-5 py-10 sm:px-8 sm:py-12 shadow-[0_16px_40px_rgba(28,26,23,0.03)] rounded-[3px] flex flex-col items-center text-center gap-5 sm:gap-6 animate-[fadeIn_0.7s_ease-out] luxury-card border-glow-breath z-20">
         {/* Glossy Light Sweep (Yanarlı Dönerli Altın Işık Süzmesi) */}
         <div className="light-sweep-container">
           <div className="light-sweep" />
@@ -305,7 +305,7 @@ export default function InvitePage() {
         </div>
 
         {/* Intertwined Engagement Rings Divider */}
-        <div className="flex items-center gap-4.5 z-10 opacity-85 my-2">
+        <div className="flex items-center gap-4.5 z-10 opacity-85 my-0.5">
           <div className="w-12 h-px bg-line" />
           <svg width="72" height="48" viewBox="0 0 48 32" fill="none" className="text-olive scale-110">
             {/* Left Ring (engagement/diamond ring) */}
@@ -365,7 +365,7 @@ export default function InvitePage() {
         </div>
 
         {/* Action buttons */}
-        <div className="flex flex-col items-center gap-5 pt-4 z-10">
+        <div className="flex flex-col items-center gap-5 pt-1 z-10">
           {/* LCV Reminder */}
           <div className="animate-[pulse_3s_ease-in-out_infinite]">
             <p className="font-display text-[11px] font-semibold tracking-[0.12em] uppercase text-ink bg-[#c5a880]/20 py-2 px-5 rounded-full border border-[#c5a880]/40 text-center shadow-[0_2px_8px_rgba(0,0,0,0.05)]">
