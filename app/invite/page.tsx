@@ -575,8 +575,8 @@ export default function InvitePage() {
 
       {/* Footer */}
       <div className="absolute bottom-4 left-0 right-0 text-center z-20">
-        <p className="font-display text-[10px] tracking-widest uppercase text-ink-soft/60">
-          Copyright 2026 | Design By Alperen Tağman.
+        <p className="font-display text-[10px] tracking-widest text-ink-soft/60">
+          COPYRIGHT 2026 | DESIGN BY ALPEREN TAĞMAN.
         </p>
       </div>
     </main>
